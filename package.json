@@ -1,0 +1,27 @@
+{
+  "name": "cs2-parser",
+  "version": "1.0.0",
+  "description": "Parser for CS2 language",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pyragon/cs2-parser.git"
+  },
+  "keywords": [
+    "CS2",
+    "Parser",
+    "RS2"
+  ],
+  "author": "Pyragon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pyragon/cs2-parser/issues"
+  },
+  "homepage": "https://github.com/pyragon/cs2-parser#readme",
+  "dependencies": {
+    "arcsecond": "^2.0.4"
+  }
+}
