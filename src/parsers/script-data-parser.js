@@ -17,12 +17,13 @@ const argumentParser = A.coroutine(function* () {
 });
 
 const scriptData = A.coroutine(function* () {
-	yield A.str('//'),
-	yield A.regex(/^script_\d+/)
+	yield A.str('//');
+
+	let name = yield up.variable;
 
 	yield A.char('(');
 
-	let scriptId = yield A.digits;
+	let id = yield A.digits;
 
 	yield A.char(')');
 
@@ -40,8 +41,10 @@ const scriptData = A.coroutine(function* () {
 	yield A.optionalWhitespace;
 
 	return up.asType('SCRIPT_DATA') ({
-		id: scriptId,
-		args
+		id,
+		name,
+		args,
+		returnType
 	});
 
 });
