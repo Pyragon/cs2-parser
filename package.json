@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/pyragon/cs2-parser#readme",
   "dependencies": {
-    "arcsecond": "^2.0.4"
+    "arcsecond": "^2.0.4",
+    "util": "^0.12.3"
   }
 }
