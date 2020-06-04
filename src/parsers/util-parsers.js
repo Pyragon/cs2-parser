@@ -8,19 +8,33 @@ const argumentTypeParser = A.choice([
 	A.str('int'),
 	A.str('boolean'),
 	A.str('string')
-]);
+]).map(asType("ARGUMENT_TYPE"));
 
 const returnTypeParser = A.choice([
     A.str('int'),
     A.str('boolean'),
     A.str('string'),
     A.str('void')
-]);
+]).map(asType("RETURN_TYPE"));
 
-const variable = mapJoin(A.sequenceOf([
-	A.regex(/^[a-zA-Z_]/),
-	A.possibly(A.regex(/^[a-zA-Z0-9_]+/)).map(x => x === null ? '' : x)
-]));
+const stringLiteral = A.coroutine(function* () {
+
+    yield A.char('"');
+
+    let value = yield A.regex(/^[^"]+/);
+
+    yield A.char('"');
+
+    return asType("STRING_LITERAL") ({
+        value
+    });
+
+});
+
+const boolLiteral = A.choice([
+    A.str('true'),
+    A.str('false')
+]).map(asType("BOOL_LITERAL"));
 
 module.exports = {
     asType,
@@ -28,5 +42,6 @@ module.exports = {
     peek,
     argumentTypeParser,
     returnTypeParser,
-    variable
+    stringLiteral,
+    boolLiteral
 };

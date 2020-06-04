@@ -1,4 +1,5 @@
 const up = require('./util-parsers.js');
+const v = require('./variables.js');
 const A = require('arcsecond');
 
 const commaSeperated = A.sepBy(A.sequenceOf([
@@ -9,7 +10,7 @@ const commaSeperated = A.sepBy(A.sequenceOf([
 const argumentParser = A.coroutine(function* () {
 	let type = yield up.argumentTypeParser;
 	yield A.whitespace;
-	let name = yield up.variable;
+	let name = yield v.variable;
 	return up.asType('ARGUMENT') ({
 		type,
 		name
@@ -19,7 +20,7 @@ const argumentParser = A.coroutine(function* () {
 const scriptData = A.coroutine(function* () {
 	yield A.str('//');
 
-	let name = yield up.variable;
+	let name = yield v.variable;
 
 	yield A.char('(');
 
