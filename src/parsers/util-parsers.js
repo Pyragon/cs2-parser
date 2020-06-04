@@ -4,6 +4,11 @@ const asType = type => value => ({ type, value });
 const mapJoin = parser => parser.map(items => items.join(''));
 const peek = A.lookAhead(A.regex(/^./));
 
+const commaSeperated = A.sepBy(A.sequenceOf([
+        A.char(','),
+        A.optionalWhitespace
+]));
+
 const argumentTypeParser = A.choice([
 	A.str('int'),
 	A.str('boolean'),
@@ -40,6 +45,7 @@ module.exports = {
     asType,
     mapJoin,
     peek,
+	commaSeperated,
     argumentTypeParser,
     returnTypeParser,
     stringLiteral,

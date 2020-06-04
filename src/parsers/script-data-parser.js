@@ -2,11 +2,6 @@ const up = require('./util-parsers.js');
 const v = require('./variables.js');
 const A = require('arcsecond');
 
-const commaSeperated = A.sepBy(A.sequenceOf([
-	A.char(','),
-	A.optionalWhitespace
-]));
-
 const argumentParser = A.coroutine(function* () {
 	let type = yield up.argumentTypeParser;
 	yield A.whitespace;
@@ -30,7 +25,7 @@ const scriptData = A.coroutine(function* () {
 
 	yield A.char('(');
 
-	const args = yield commaSeperated(argumentParser);
+	const args = yield up.commaSeperated(argumentParser);
 
 	yield A.char(')');
 
