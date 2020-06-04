@@ -17,6 +17,8 @@ const functionCall = A.coroutine(function*() {
 		A.digits.map(up.asType('INT_LITERAL'))
 	]));
 
+	yield A.char(')');
+
 	return up.asType('FUNCTION_CALL') ({
 		name,
 		params
