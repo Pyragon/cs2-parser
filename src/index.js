@@ -38,28 +38,29 @@ script_71(ivar0)
 return
 `;
 
-// let parser = A.choice([
-// 	scriptDataParser,
-// 	fc.functionCall,
-// 	v.variableCreation,
-// 	v.variableAssignation,
-// 	s.statement,
-// 	s.returnStatement
-// ]);
+let parser = A.choice([
+	scriptDataParser,
+	fc.functionCall,
+	v.variableCreation,
+	v.variableAssignation,
+	s.statement,
+	s.returnStatement
+]);
 
-// let results = [];
-// let index = 0;
-// for(let line of fullScriptData.split('\n')) {
-// 	let data = parser.run(line);
-// 	if(data.isError === true) {
-// 		console.log('Error on line '+index+': '+data.error);
-// 		return;
-// 	}
-// 	results.push(data.result);
-// 	index++;
-// }
+let results = [];
+let index = 0;
+for(let line of fullScriptData.split('\n')) {
+	let data = parser.run(line);
+	if(data.isError === true) {
+		console.log('Error on line '+index+': '+data.error);
+		process.exit();
+		return;
+	}
+	results.push(data.result);
+	index++;
+}
 
-// deepLog(results);
+deepLog(results);
 
-const result = fc.calcFunctionCall.run(calcFunctionData);
-deepLog(result);
+// const result = fc.calcFunctionCall.run(calcFunctionData);
+// deepLog(result);

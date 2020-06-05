@@ -28,8 +28,6 @@ const variableAssignation = A.coroutine(function* () {
 		up.boolLiteral,
 		A.digits.map(up.asType('INT_LITERAL'))
     ]);
-    
-    console.log(value);
 
     return up.asType('VARIABLE_ASSIGNATION') ({
         name,
