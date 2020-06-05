@@ -5,13 +5,13 @@ const up = require('./util-parsers');
 
 const functionCall = A.coroutine(function*() {
 
-	let name = yield v.variable;
+	let name = yield up.variable;
 
 	yield A.char('(');
 
 	let params = yield up.commaSeperated(A.choice([
 		functionCall,
-		v.variable,
+		up.variable,
 		up.stringLiteral,
 		up.boolLiteral,
 		A.digits.map(up.asType('INT_LITERAL'))

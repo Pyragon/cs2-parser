@@ -15,6 +15,12 @@ const argumentTypeParser = A.choice([
 	A.str('string')
 ]).map(asType("ARGUMENT_TYPE"));
 
+
+const variable = mapJoin(A.sequenceOf([
+        A.regex(/^[a-zA-Z_]/),
+        A.possibly(A.regex(/^[a-zA-Z0-9_]+/)).map(x => x === null ? '' : x)
+])).map(asType("VARIABLE"));
+
 const returnTypeParser = A.choice([
     A.str('int'),
     A.str('boolean'),
@@ -45,6 +51,7 @@ module.exports = {
     asType,
     mapJoin,
     peek,
+	variable,
 	commaSeperated,
     argumentTypeParser,
     returnTypeParser,
