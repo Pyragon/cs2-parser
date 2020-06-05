@@ -19,13 +19,17 @@ const variableAssignation = A.coroutine(function* () {
 	let name = yield up.variable;
 	yield A.optionalWhitespace;
 	yield A.char('=');
-	yield A.optionalWhitespace;
+    yield A.optionalWhitespace;
+    
 	let value = yield A.choice([
+        fc.calcFunctionCall,
 		fc.functionCall,
 		up.stringLiteral,
 		up.boolLiteral,
 		A.digits.map(up.asType('INT_LITERAL'))
-	]);
+    ]);
+    
+    console.log(value);
 
     return up.asType('VARIABLE_ASSIGNATION') ({
         name,

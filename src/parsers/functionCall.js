@@ -23,16 +23,15 @@ const calcFunctionCall = A.coroutine(function* () {
 	yield A.optionalWhitespace;
 
 	let right = yield A.choice([
-               	calcFunctionCall,
+		calcFunctionCall,
 		functionCall,
 		up.intLiteral,
 		up.variable
-        ]);
+	]);
 
-	yield A.char(')');
+	yield A.optionalWhitespace;
 
 	return up.asType('CALC_FUNCTION_CALL') ({
-		name: 'test',
 		left,
 		operator,
 		right
@@ -47,6 +46,7 @@ const functionCall = A.coroutine(function*() {
 	yield A.char('(');
 
 	let params = yield up.commaSeperated(A.choice([
+		calcFunctionCall,
 		functionCall,
 		up.variable,
 		up.stringLiteral,

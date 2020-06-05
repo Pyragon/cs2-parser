@@ -10,6 +10,7 @@ const statement = A.coroutine(function* () {
 		A.str('if'),
 		A.str('while'),
 	]);
+	yield A.optionalWhitespace;
 	yield A.char('(');
 	yield A.optionalWhitespace;
 	let left = yield A.choice([

@@ -63,7 +63,34 @@ const boolLiteral = A.choice([
     A.str('false')
 ]).map(asType("BOOL_LITERAL"));
 
-const intLiteral = A.digits.map(asType('INT_LITERAL'));
+const positiveIntLiteral = A.coroutine(function* () {
+
+    let value = yield A.digits;
+
+    return asType('INT_LITERAL') ({
+        negative: false,
+        value
+    });
+
+});
+
+const negativeIntLiteral = A.coroutine(function* () {
+
+    yield A.char('-');
+
+    let value = yield A.digits;
+
+    return asType('INT_LITERAL') ({
+        negative: true,
+        value
+    });
+
+});
+
+const intLiteral = A.choice([
+    negativeIntLiteral,
+    positiveIntLiteral
+])
 
 module.exports = {
     asType,
