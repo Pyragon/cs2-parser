@@ -3,6 +3,43 @@ const A = require('arcsecond');
 const v = require('./variables');
 const up = require('./util-parsers');
 
+const calcFunctionCall = A.coroutine(function* () {
+
+	yield A.str('calc(');
+
+	yield A.optionalWhitespace;
+
+	let left = yield A.choice([
+		calcFunctionCall,
+		functionCall,
+		up.intLiteral,
+		up.variable
+	]);
+
+	yield A.optionalWhitespace;
+
+	let operator = yield up.operator;
+
+	yield A.optionalWhitespace;
+
+	let right = yield A.choice([
+               	calcFunctionCall,
+		functionCall,
+		up.intLiteral,
+		up.variable
+        ]);
+
+	yield A.char(')');
+
+	return up.asType('CALC_FUNCTION_CALL') ({
+		name: 'test',
+		left,
+		operator,
+		right
+	});
+
+});
+
 const functionCall = A.coroutine(function*() {
 
 	let name = yield up.variable;
@@ -27,5 +64,6 @@ const functionCall = A.coroutine(function*() {
 });
 
 module.exports = {
+	calcFunctionCall,
 	functionCall
 };

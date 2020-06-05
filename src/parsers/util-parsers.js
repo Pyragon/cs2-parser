@@ -21,6 +21,13 @@ const variable = mapJoin(A.sequenceOf([
         A.possibly(A.regex(/^[a-zA-Z0-9_]+/)).map(x => x === null ? '' : x)
 ])).map(asType("VARIABLE"));
 
+const operator = A.choice([
+	A.char('+'),
+	A.char('-'),
+	A.char('/'),
+	A.char('*')
+]).map(asType('OPERATOR'));
+
 const returnTypeParser = A.choice([
     A.str('int'),
     A.str('boolean'),
@@ -47,14 +54,18 @@ const boolLiteral = A.choice([
     A.str('false')
 ]).map(asType("BOOL_LITERAL"));
 
+const intLiteral = A.digits.map(asType('INT_LITERAL'));
+
 module.exports = {
     asType,
     mapJoin,
     peek,
+	operator,
 	variable,
 	commaSeperated,
     argumentTypeParser,
     returnTypeParser,
     stringLiteral,
-    boolLiteral
+    boolLiteral,
+	intLiteral
 };
