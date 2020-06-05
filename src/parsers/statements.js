@@ -48,6 +48,9 @@ const statement = A.coroutine(function* () {
 });
 
 const returnStatement = A.coroutine(function* () {
+
+	yield A.optionalWhitespace;
+
 	yield A.str('return');
 
 	yield A.optionalWhitespace;

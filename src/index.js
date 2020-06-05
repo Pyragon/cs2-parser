@@ -35,8 +35,7 @@ if(ivar1 == -1)
 if(if_isopen(ivar1) == 0)
 	return
 script_71(ivar0)
-return
-`;
+return`;
 
 let parser = A.choice([
 	scriptDataParser,
