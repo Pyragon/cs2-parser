@@ -9,6 +9,18 @@ const commaSeperated = A.sepBy(A.sequenceOf([
         A.optionalWhitespace
 ]));
 
+const orSeperated = A.sepBy(A.sequenceOf([
+    A.optionalWhitespace,
+    A.str('||'),
+    A.optionalWhitespace
+]));
+
+const andSeperated = A.sepBy(A.sequenceOf([
+    A.optionalWhitespace,
+    A.str('&&'),
+    A.optionalWhitespace
+]));
+
 const argumentTypeParser = A.choice([
 	A.str('int'),
 	A.str('boolean'),
@@ -97,8 +109,10 @@ module.exports = {
     mapJoin,
     peek,
 	operator,
-	variable,
+    variable,
 	commaSeperated,
+	orSeperated,
+	andSeperated,
 	statementOperator,
     argumentTypeParser,
     returnTypeParser,

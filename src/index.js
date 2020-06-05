@@ -17,8 +17,9 @@ const variableCreationData = 'int var1';
 const variableAssignationData = 'var1 = script12(true, 12, "test", script58(121212121212121212121212), script_1222())';
 const functionCallData = 'script12("test", 12, true, script13(true, 12, "test"))';
 const calcFunctionData = 'calc(var1 + script10(calc(10 + 10)))';
-const statementData = 'while(var1 < calc(20 / 2)) {';
+const statementData = 'while(10 < 10) {';
 const returnData = 'return calc(10 + 10);';
+const testBracket = 'if(10 < 10 || 10 > 10)';
 
 const fullScriptData = `//script_7(7)()(void)
 int var0
@@ -38,30 +39,30 @@ if(if_isopen(ivar1) == 0) {
 script_71(ivar0)
 return`;
 
-let parser = A.choice([
-	scriptDataParser,
-	fc.functionCall,
-	v.variableCreation,
-	v.variableAssignation,
-	s.statement,
-	s.returnStatement,
-	s.endBlock
-]);
+// let parser = A.choice([
+// 	scriptDataParser,
+// 	fc.functionCall,
+// 	v.variableCreation,
+// 	v.variableAssignation,
+// 	s.statement,
+// 	s.returnStatement,
+// 	s.endBlock
+// ]);
 
-let results = [];
-let index = 0;
-for(let line of fullScriptData.split('\n')) {
-	let data = parser.run(line);
-	if(data.isError === true) {
-		console.log('Error on line '+index+': '+data.error);
-		process.exit();
-		return;
-	}
-	results.push(data.result);
-	index++;
-}
+// let results = [];
+// let index = 0;
+// for(let line of fullScriptData.split('\n')) {
+// 	let data = parser.run(line);
+// 	if(data.isError === true) {
+// 		console.log('Error on line '+index+': '+data.error);
+// 		process.exit();
+// 		return;
+// 	}
+// 	results.push(data.result);
+// 	index++;
+// }
 
-deepLog(results);
+// deepLog(results);
 
-// const result = s.statement.run(statementData);
-// deepLog(result);
+const result = s.statement.run(statementData);
+deepLog(result);

@@ -4,16 +4,32 @@ const up = require('./util-parsers');
 const v = require('./variables');
 const fc = require('./functionCall');
 
+const bracketedExpression = A.coroutine(function* () {
+
+	yield A.char('(');
+
+	//TODO - create arrays using sepBy(||) and sepBy(&&)
+	//change statement to include the ( and seperate by || and &&,
+	//see if that's different than this, still do same for bracketedExpression and expression
+
+	let expr = yield up.orSeperated(A.choice([
+		expression
+	]));
+	
+	yield A.char(')');
+
+	return up.asType('BRACKETED_EXPRESSION') ({
+		expr
+	});
+
+});
+
 const expression = A.coroutine(function* () {
 
 	yield A.optionalWhitespace;
 
-	yield A.char('(');
-
-	yield A.optionalWhitespace;
-
 	let left = yield A.choice([
-		expression,
+		bracketedExpression,
 		fc.calcFunctionCall,
 		fc.functionCall,
 		up.variable,
@@ -28,15 +44,13 @@ const expression = A.coroutine(function* () {
 	yield A.optionalWhitespace;
 
 	let right = yield A.choice([
-		expression,
+		bracketedExpression,
 		fc.calcFunctionCall,
 		fc.functionCall,
 		up.variable,
 		up.intLiteral,
 		up.boolLiteral
 	]);
-
-	yield A.char(')');
 
 	return up.asType('EXPRESSION') ({
 		left,
@@ -53,9 +67,7 @@ const statement = A.coroutine(function* () {
 		A.str('while'),
 	]);
 
-	let expr = yield A.choice([
-		expression
-	]);
+	let expr = yield bracketedExpression;
 
 	yield A.optionalWhitespace;
 
