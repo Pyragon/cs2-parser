@@ -15,6 +15,7 @@ const statement = A.coroutine(function* () {
 	let left = yield A.choice([
 		fc.calcFunctionCall,
 		fc.functionCall,
+		up.variable,
 		up.intLiteral,
 		up.boolLiteral,
 	]);
@@ -24,6 +25,7 @@ const statement = A.coroutine(function* () {
 	let right = yield A.choice([
 		fc.calcFunctionCall,
 		fc.functionCall,
+		up.variable,
 		up.intLiteral,
 		up.boolLiteral
 	]);
@@ -44,6 +46,28 @@ const statement = A.coroutine(function* () {
 
 });
 
+const returnStatement = A.coroutine(function* () {
+	yield A.str('return');
+
+	yield A.optionalWhitespace;
+
+	let value = yield A.choice([
+		fc.calcFunctionCall,
+		fc.functionCall,
+		up.variable,
+		up.intLiteral,
+		up.stringLiteral,
+		up.boolLiteral,
+		A.char(';'),
+		A.endOfInput
+	]);
+
+	return up.asType('RETURN_STATEMENT') ({
+		value: value === ';' ? null : value
+	});
+});
+
 module.exports = {
-	statement
+	statement,
+	returnStatement
 };

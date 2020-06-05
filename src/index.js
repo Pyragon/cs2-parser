@@ -17,7 +17,8 @@ const variableCreationData = 'int var1';
 const variableAssignationData = 'var1 = script12(true, 12, "test", script58(121212121212121212121212), script_1222())';
 const functionCallData = 'script12("test", 12, true, script13(true, 12, "test"))';
 const calcFunctionData = 'calc(10 + calc(10 + calc(20 / 20)))';
-const ifStatementData = 'while(true < calc(20 / 2)) {';
+const ifStatementData = 'while(var1 < calc(20 / 2)) {';
+const returnData = 'return calc(10 + 10);';
 
-const result = s.statement.run(ifStatementData);
+const result = s.returnStatement.run(returnData);
 deepLog(result);
