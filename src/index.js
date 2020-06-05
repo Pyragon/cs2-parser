@@ -20,5 +20,34 @@ const calcFunctionData = 'calc(10 + calc(10 + calc(20 / 20)))';
 const ifStatementData = 'while(var1 < calc(20 / 2)) {';
 const returnData = 'return calc(10 + 10);';
 
-const result = s.returnStatement.run(returnData);
-deepLog(result);
+const fullScriptData = `//script_1(1)(int arg1)(void)
+int var1
+var1 = 12
+string var2
+var2 = to_string(var1)
+send_message(var2)
+return`;
+
+let parser = A.choice([
+	scriptDataParser,
+	fc.functionCall,
+	v.variableCreation,
+	v.variableAssignation,
+	s.statement,
+	s.returnStatement
+]);
+
+let results = [];
+for(let line of fullScriptData.split('\n')) {
+	let data = parser.run(line);
+	if(data.isError === true) {
+		console.log(data);
+		return;
+	}
+	results.push(data.result);
+}
+
+deepLog(results);
+
+//const result = s.returnStatement.run(returnData);
+//deepLog(result);

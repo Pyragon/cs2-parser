@@ -7,7 +7,6 @@ const variableCreation = A.coroutine(function* () {
     let type = yield up.argumentTypeParser;
     yield A.whitespace;
     let name = yield up.variable;
-    yield A.char(';');
 
     return up.asType('VARIABLE_CREATION') ({
         type,

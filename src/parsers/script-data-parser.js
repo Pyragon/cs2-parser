@@ -1,11 +1,10 @@
 const up = require('./util-parsers.js');
-const v = require('./variables.js');
 const A = require('arcsecond');
 
 const argumentParser = A.coroutine(function* () {
 	let type = yield up.argumentTypeParser;
 	yield A.whitespace;
-	let name = yield v.variable;
+	let name = yield up.variable;
 	return up.asType('ARGUMENT') ({
 		type,
 		name
@@ -15,7 +14,7 @@ const argumentParser = A.coroutine(function* () {
 const scriptData = A.coroutine(function* () {
 	yield A.str('//');
 
-	let name = yield v.variable;
+	let name = yield up.variable;
 
 	yield A.char('(');
 
