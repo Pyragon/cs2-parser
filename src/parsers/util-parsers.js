@@ -28,6 +28,15 @@ const operator = A.choice([
 	A.char('*')
 ]).map(asType('OPERATOR'));
 
+const statementOperator = A.choice([
+	A.char('<'),
+	A.char('>'),
+	A.str('=='),
+	A.str('!='),
+	A.str('<='),
+	A.str('>=')
+]).map(asType('STATEMENT_OPERATOR'));
+
 const returnTypeParser = A.choice([
     A.str('int'),
     A.str('boolean'),
@@ -63,6 +72,7 @@ module.exports = {
 	operator,
 	variable,
 	commaSeperated,
+	statementOperator,
     argumentTypeParser,
     returnTypeParser,
     stringLiteral,
