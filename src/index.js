@@ -17,7 +17,7 @@ const variableCreationData = 'int var1';
 const variableAssignationData = 'var1 = script12(true, 12, "test", script58(121212121212121212121212), script_1222())';
 const functionCallData = 'script12("test", 12, true, script13(true, 12, "test"))';
 const calcFunctionData = 'calc(var1 + script10(calc(10 + 10)))';
-const ifStatementData = 'while(var1 < calc(20 / 2)) {';
+const statementData = 'while(var1 < calc(20 / 2)) {';
 const returnData = 'return calc(10 + 10);';
 
 const fullScriptData = `//script_7(7)()(void)
@@ -32,8 +32,9 @@ if(ivar0 == script1305())
 ivar1 = script_8(ivar0)
 if(ivar1 == -1)
 	return
-if(if_isopen(ivar1) == 0)
+if(if_isopen(ivar1) == 0) {
 	return
+}
 script_71(ivar0)
 return`;
 
@@ -43,7 +44,8 @@ let parser = A.choice([
 	v.variableCreation,
 	v.variableAssignation,
 	s.statement,
-	s.returnStatement
+	s.returnStatement,
+	s.endBlock
 ]);
 
 let results = [];
@@ -61,5 +63,5 @@ for(let line of fullScriptData.split('\n')) {
 
 deepLog(results);
 
-// const result = fc.calcFunctionCall.run(calcFunctionData);
+// const result = s.statement.run(statementData);
 // deepLog(result);
