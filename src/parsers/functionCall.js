@@ -31,6 +31,8 @@ const calcFunctionCall = A.coroutine(function* () {
 
 	yield A.optionalWhitespace;
 
+	yield A.char(')');
+
 	return up.asType('CALC_FUNCTION_CALL') ({
 		left,
 		operator,

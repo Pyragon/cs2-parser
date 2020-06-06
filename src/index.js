@@ -22,9 +22,8 @@ const returnData = 'return calc(10 + 10);';
 const testBracket = 'if(10 < 10 && (10 < 10 || 10 > 10))';
 
 const fullScriptData = `//script_7(7)()(void)
-int var0
+int var0 = calc(100 - load_var(10))
 int var1
-ivar0 = calc(100 - load_var(10))
 store_varc(10, 0)
 if(ivar0 < -1 || ivar0 == script1305())
 	return
@@ -37,6 +36,7 @@ return`;
 let parser = A.choice([
 	scriptDataParser,
 	fc.functionCall,
+	v.variableCreateAssign,
 	v.variableCreation,
 	v.variableAssignation,
 	s.statement,
@@ -46,7 +46,7 @@ let parser = A.choice([
 
 let results = [];
 let index = 0;
-/*for(let line of fullScriptData.split('\n')) {
+for(let line of fullScriptData.split('\n')) {
 	let data = parser.run(line);
 	if(data.isError === true) {
 		console.log('Error on line '+index+': '+data.error);
@@ -57,7 +57,7 @@ let index = 0;
 	index++;
 }
 
-deepLog(results);*/
+deepLog(results);
 
-const result = s.statement.run(testBracket);
-deepLog(result);
+//const result = s.statement.run(testBracket);
+//deepLog(result);
