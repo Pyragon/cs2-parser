@@ -4,6 +4,13 @@ const up = require('./util-parsers');
 const v = require('./variables');
 const fc = require('./functionCall');
 
+const bracketedAndExpression = A.coroutine(function* () {
+});
+
+const bracketedOrExpression = A.coroutine(function* () {
+});
+
+//normal bracketed expression, no splits
 const bracketedExpression = A.coroutine(function* () {
 
 	yield A.char('(');
@@ -11,10 +18,17 @@ const bracketedExpression = A.coroutine(function* () {
 	//TODO - create arrays using sepBy(||) and sepBy(&&)
 	//change statement to include the ( and seperate by || and &&,
 	//see if that's different than this, still do same for bracketedExpression and expression
-
-	let expr = yield up.orSeperated(A.choice([
-		expression
-	]));
+	
+	let expr = yield A.choice([
+		up.orSeperated(A.choice([
+			bracketedExpression,
+			expression
+		])).map(up.asType('OR_SEP')),
+		up.andSeperated(A.choice([
+			bracketedExpression,
+			expression
+		])).map(up.asType('AND_SEP'))
+	]);
 	
 	yield A.char(')');
 
