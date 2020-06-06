@@ -19,7 +19,7 @@ const functionCallData = 'script12("test", 12, true, script13(true, 12, "test"))
 const calcFunctionData = 'calc(var1 + script10(calc(10 + 10)))';
 const statementData = 'while(10 < 10 && (10 < 10 || 10 > 10)) {';
 const returnData = 'return calc(10 + 10);';
-const testBracket = 'if(10 < 10 && 10 > 10)';
+const testBracket = 'if(10 < 10 && (10 < 10 || 10 > 10))';
 
 const fullScriptData = `//script_7(7)()(void)
 int var0
