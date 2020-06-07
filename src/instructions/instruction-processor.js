@@ -10,7 +10,7 @@ const processInstructions = (data, variables, args) => {
 
 	let opCount = 0;
 
-	const processInstruction = (instruction) => {
+	const processInstruction = (instruction, i) => {
 		let name;
 		let value;
 		let variable;
@@ -128,6 +128,21 @@ const processInstructions = (data, variables, args) => {
 				iValues[opCount++] = 0;
 				break;
             case 'STATEMENT':
+				//save op count at start of statement.
+				//once we reach a 'END_BLOCK' instruction, 
+				//here we fuckin' go.........
+				if(!instruction.value.hasBlock) {
+					//okay, so process next line of instruction, add jump/goto instructions
+					//get opCount before processing next line, # of instructions is opCount at end-opCount at beginning
+					//break and keep going.
+					//figure out the multiple statements using || or &&, for now, split into 2 statements and get working with that
+					//we can figure this ^ out afterwards once we get the base working again
+				}
+				let nextInstr;
+				while((nextInstr = data[i++]) != null && nextInstr.type != 'END_BLOCK')
+					processInstruction(nextInstr);
+				//we should be at the endblock now.
+				console.log(nextInstr);
                 break;
 			case 'RETURN_STATEMENT':
 				value = instruction.value;
@@ -140,12 +155,12 @@ const processInstructions = (data, variables, args) => {
 				break;
 			default:
 				throw new Error('Unhandled type: '+instruction.type);
-        }
+		}
+		return i;
 	};
 
-	for(let instruction of data) {
-		processInstruction(instruction);
-	}
+	for(let i = 0; i < data.length; i++)
+		i = processInstruction(data[i], i);
 	return [ iValues, sValues, lValues, instructions, opCount ];
 
 };
