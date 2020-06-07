@@ -83,5 +83,25 @@
 		"name": "CALL_CS2",
 		"opcode": 902,
 		"hasExtra": true
+	},
+	{
+		"name": "INT_LT",
+		"opcode": 566,
+		"hasExtra": true
+	},
+	{
+		"name": "INT_GT",
+		"opcode": 939,
+		"hasExtra": true
+	},
+	{
+		"name": "GOTO",
+		"opcode": 123,
+		"hasExtra": true
+	},
+	{
+		"name": "if_isopen",
+		"opcode": 888,
+		"hasExtra": false
 	}
 ]

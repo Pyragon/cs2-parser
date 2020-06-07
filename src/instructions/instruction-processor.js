@@ -16,6 +16,7 @@ const processInstructions = (data, variables, args) => {
 		let variable;
 		let instr;
 		let params;
+		console.log('i: '+instruction);
 		switch(instruction.type) {
 			case 'INT_LITERAL':
 				instr = _instructions['PUSH_INT'];
@@ -132,11 +133,50 @@ const processInstructions = (data, variables, args) => {
 				//once we reach a 'END_BLOCK' instruction, 
 				//here we fuckin' go.........
 				if(!instruction.value.hasBlock) {
+					let expressions = instruction.value.expr.value.expr.value.expr; //jesus fuck....
+					if(expressions.length == 1) {
+						//no && or ||
+						// console.log(expressions[0].value.left);
+						processInstruction(expressions[0].value.left);
+						processInstruction(expressions[0].value.right);
+						switch(expressions[0].value.operator.value) {
+							case '<':
+								instructions.push(_instructions['INT_LT']);
+								break;
+							case '>':
+								instructions.push(_instructions['INT_GT']);
+								break;
+							case '==':
+								//instructions.push(_instructions['INT_LT']);
+								break;
+							case '>=':
+								//instructions.push(_instructions['INT_LT']);
+								break;
+							case '<=':
+								//instructions.push(_instructions['INT_LT']);
+								break;
+							case '!=':
+								//instructions.push(_instructions['INT_LT']);
+								break;
+						}
+						iValues[opCount++] = 1;
+						instructions.push(_instructions['GOTO']);
+						let instrSizeI = opCount++;
+						iValues[instrSizeI] = 1;
+						let nex = data[i++];
+						if(nex)
+							processInstruction(nex);
+						iValues[instrSizeI] = opCount-instrSizeI;
+						break;
+					}
+					//processInstruction(data[i++]);
+					
 					//okay, so process next line of instruction, add jump/goto instructions
 					//get opCount before processing next line, # of instructions is opCount at end-opCount at beginning
 					//break and keep going.
 					//figure out the multiple statements using || or &&, for now, split into 2 statements and get working with that
 					//we can figure this ^ out afterwards once we get the base working again
+					break;
 				}
 				let nextInstr;
 				while((nextInstr = data[i++]) != null && nextInstr.type != 'END_BLOCK')

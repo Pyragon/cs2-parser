@@ -27,10 +27,14 @@ const fullScriptData = `//script_7(7)()(int)
 int ivar0 = calc(100 - load_varc(10))
 int ivar1
 store_varc(10, 0)
-if(ivar0 < -1 || ivar0 == script1305())
+if(ivar0 < -1)
+	return
+if(ivar0 == script1305())
 	return
 ivar1 = script_8(ivar0)
-if(ivar1 == -1 || if_isopen(ivar1) == 0)
+if(ivar1 == -1)
+	return
+if(if_isopen(ivar1) == 0)
 	return
 script_71(ivar0)
 return`;
