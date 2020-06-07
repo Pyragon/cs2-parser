@@ -4,7 +4,7 @@ const A = require('arcsecond');
 const up = require('./parsers/util-parsers');
 const v = require('./parsers/variables');
 const scriptDataParser = require('./parsers/script-data-parser');
-const fc = require('./parsers/functionCall');
+const fc = require('./parsers/function-call');
 const s = require('./parsers/statements');
 
 const CS2Script = require('./cs2script.js');
