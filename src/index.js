@@ -7,6 +7,8 @@ const scriptDataParser = require('./parsers/script-data-parser');
 const fc = require('./parsers/functionCall');
 const s = require('./parsers/statements');
 
+const CS2Script = require('./cs2script.js');
+
 const deepLog = x => console.log(inspect(x, {
 	depth: Infinity,
 	colors: true
@@ -57,7 +59,32 @@ for(let line of fullScriptData.split('\n')) {
 	index++;
 }
 
-deepLog(results);
+//get info from results, id, name, args, variables, returnType
+let scriptDataResult = results[0];
+let id = scriptDataResult.value.id;
+if(!id) {
+	console.log('Missing ID in script data');
+	return;
+}
+let name = scriptDataResult.value.name.value;
+if(!name) {
+	console.log('Missing name in script data');
+	return;
+}
+let args = scriptDataResult.value.args;
+let returnType = scriptDataResult.value.returnType.value;
+if(!returnType) {
+	console.log('Missing return type in script data');
+	return;
+}
+let variables = results.filter(e => e.type === 'VARIABLE_CREATION' || e.type == 'VARIABLE_CREATE_ASSIGN').map(e => ({
+	type: e.value.type.value,
+	name: e.value.name.value
+}));
+results.shift();
+let script = new CS2Script(id, name, args, variables, returnType, results);
+console.log(script);
+console.log(`ID: ${id}, Name: ${name}, Args: ${args}, RT: ${returnType}`);
 
 //const result = s.statement.run(testBracket);
 //deepLog(result);
