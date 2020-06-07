@@ -1,4 +1,4 @@
-const processor = require('./instruction-processor');
+const processor = require('./instructions/instruction-processor');
 
 class CS2Script {
 
@@ -8,7 +8,7 @@ class CS2Script {
 		this.args = args;
 		this.variables = variables;
 		this.returnType = returnType;
-		this.instructionData = processor(instructionData);
+		this.instructionData = processor(instructionData, variables, args);
 	}
 
 }
