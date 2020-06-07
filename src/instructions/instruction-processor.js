@@ -15,6 +15,7 @@ const processInstructions = (data, variables, args) => {
 		let value;
 		let variable;
 		let instr;
+		let params;
 		switch(instruction.type) {
 			case 'INT_LITERAL':
 				instr = _instructions['PUSH_INT'];
@@ -59,7 +60,7 @@ const processInstructions = (data, variables, args) => {
 				if(!variable) throw new Error('Unable to find variable: '+name);
 				value = value.value;
 				processInstruction(value);
-				switch(instruction.value.type.value) {
+				switch(variable.type) {
 					case 'int':
 						instructions.push(_instructions['STORE_INT']);
 						iValues[opCount++] = variable.index;
@@ -93,23 +94,45 @@ const processInstructions = (data, variables, args) => {
 						break;
 					case '*':
 						instructions.push(_instructions['MULTIPLY']);
-						iVAlues[opCount++] = 0;
+						iValues[opCount++] = 0;
 						break;
 				}
 				break;
-                        case 'FUNCTION_CALL':
-                                name = instruction.value.name.value;
-                                value = instructionDB.find(e => e.name.toUpperCase() === name.toUpperCase());
-                                if(!value)
-                                        value = scriptDB.find(e => e.name.toUpperCase() === name.toUpperCase());
-                                //if(!value) 
-                                  //      throw new Error('Unable to find function or script with name: '+name);
-                                break;
-                        case 'STATEMENT':
-                                break;
+            case 'FUNCTION_CALL':
+                name = instruction.value.name.value;
+                instr = _instructions[name];
+				params = instruction.value.params;
+				if(name.match(/script_?\d+/)) {
+					let id = parseInt(name.split(/script_?/)[1]);
+					for(let i = params.length-1; i >= 0; i--)
+						processInstruction(params[i]);
+					instructions.push(_instructions['CALL_CS2']);
+					iValues[opCount++] = id;
+					break;
+				}
+				if(!instr) throw new Error('Unhandled function or script: '+name);
+				if(instr.hasExtra) {
+					let constant = params[0];
+					if(!constant.type.includes('LITERAL'))
+						throw new Error('Only literal values for extra call: '+name+' '+constant);
+					
+					for(let i = params.length-1; i >= 1; i--)
+						processInstruction(params[i]);
+					instructions.push(instr);
+					iValues[opCount++] = constant.value;
+					break;
+				}
+				for(let i = params.length-1; i >= 0; i--)
+					processInstruction(params[i]);
+				instructions.push(instr);
+				iValues[opCount++] = 0;
+				break;
+            case 'STATEMENT':
+                break;
 			case 'RETURN_STATEMENT':
 				value = instruction.value;
-				if(value != null) processInstruction(value.value);
+				if(value.value != null)
+					processInstruction(value.value);
 				instructions.push(_instructions['RETURN']);
 				iValues[opCount++];
 				break;
@@ -117,7 +140,7 @@ const processInstructions = (data, variables, args) => {
 				break;
 			default:
 				throw new Error('Unhandled type: '+instruction.type);
-                }
+        }
 	};
 
 	for(let instruction of data) {

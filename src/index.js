@@ -24,10 +24,16 @@ const returnData = 'return calc(10 + 10);';
 const testBracket = 'if(10 < 10 && (10 < 10 || 10 > 10))';
 
 const fullScriptData = `//script_7(7)()(int)
-int var0 = 1
-int var1 = 1
-int var2 = calc(var0 + var1)
-return var2`;
+int ivar0 = calc(100 - load_varc(10))
+int ivar1
+store_varc(10, 0)
+if(ivar0 < -1 || ivar0 == script1305())
+	return
+ivar1 = script_8(ivar0)
+if(ivar1 == -1 || if_isopen(ivar1) == 0)
+	return
+script_71(ivar0)
+return`;
 
 let parser = A.choice([
 	scriptDataParser,
