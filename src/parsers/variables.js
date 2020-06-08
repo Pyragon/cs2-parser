@@ -4,6 +4,8 @@ const fc = require('./function-call');
 
 const variableCreateAssign = A.coroutine(function* () {
 
+    yield A.optionalWhitespace;
+
 	let type = yield up.argumentTypeParser;
 	yield A.whitespace;
 	let name = yield up.variable;
@@ -31,19 +33,23 @@ const variableCreateAssign = A.coroutine(function* () {
 
 const variableCreation = A.coroutine(function* () {
 
-    	let type = yield up.argumentTypeParser;
-    	yield A.whitespace;
-    	let name = yield up.variable;
+    yield A.optionalWhitespace;
+
+    let type = yield up.argumentTypeParser;
+    yield A.whitespace;
+    let name = yield up.variable;
 
 	yield A.endOfInput;
 
-    	return up.asType('VARIABLE_CREATION') ({
-        	type,
-        	name
-    	});
+    return up.asType('VARIABLE_CREATION') ({
+        type,
+        name
+    });
 });
 
 const variableAssignation = A.coroutine(function* () {
+
+    yield A.optionalWhitespace;
 
 	let name = yield up.variable;
 	yield A.optionalWhitespace;

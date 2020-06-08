@@ -5,6 +5,8 @@ const up = require('./util-parsers');
 
 const calcFunctionCall = A.coroutine(function* () {
 
+	yield A.optionalWhitespace;
+
 	yield A.str('calc(');
 
 	yield A.optionalWhitespace;
@@ -43,6 +45,8 @@ const calcFunctionCall = A.coroutine(function* () {
 
 const functionCall = A.coroutine(function*() {
 
+	yield A.optionalWhitespace;
+
 	let name = yield up.variable;
 
 	yield A.char('(');
@@ -53,7 +57,7 @@ const functionCall = A.coroutine(function*() {
 		up.variable,
 		up.stringLiteral,
 		up.boolLiteral,
-		A.digits.map(up.asType('INT_LITERAL'))
+		up.intLiteral
 	]));
 
 	yield A.char(')');

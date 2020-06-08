@@ -1,4 +1,5 @@
 const { inspect } = require('util');
+const _ = require('underscore');
 const A = require('arcsecond');
 
 const up = require('./parsers/util-parsers');
@@ -24,19 +25,12 @@ const returnData = 'return calc(10 + 10);';
 const testBracket = 'if(10 < 10 && (10 < 10 || 10 > 10))';
 
 const fullScriptData = `//script_7(7)()(int)
-int ivar0 = calc(100 - load_varc(10))
-int ivar1
-store_varc(10, 0)
-if(ivar0 < -1)
-	return
-if(ivar0 == script1305())
-	return
-ivar1 = script_8(ivar0)
-if(ivar1 == -1)
-	return
-if(if_isopen(ivar1) == 0)
-	return
-script_71(ivar0)
+int var1
+var1 = 0
+while(var1 < 10) {
+	send_message(to_string(var1))
+	var1 = calc(var1 + 1)
+}
 return`;
 
 let parser = A.choice([
@@ -87,9 +81,11 @@ let variables = results.filter(e => e.type === 'VARIABLE_CREATION' || e.type == 
 	name: e.value.name.value,
 	index: vIndex++
 }));
+variables = _.indexBy(variables, 'name');
 results.shift();
 let script = new CS2Script(id, name, args, variables, returnType, results);
-console.log(script.instructionData[3]);
+for(let i = 0; i < script.instructionData[3].length; i++)
+	console.log(script.instructionData[3][i].name+' '+script.instructionData[0][i]);
 
 //const result = s.statement.run(testBracket);
 //deepLog(result);

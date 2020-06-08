@@ -103,5 +103,35 @@
 		"name": "if_isopen",
 		"opcode": 888,
 		"hasExtra": false
+	},
+	{
+		"name": "INT_EQ",
+		"opcode": 933,
+		"hasExtra": true
+	},
+	{
+		"name": "INT_GE",
+		"opcode": 319,
+		"hasExtra": true
+	},
+	{
+		"name": "INT_LE",
+		"opcode": 670,
+		"hasExtra": true
+	},
+	{
+		"name": "INT_NE",
+		"opcode": 693,
+		"hasExtra": true
+	},
+	{
+		"name": "send_message",
+		"opcode": 471,
+		"hasExtra": false
+	},
+	{
+		"name": "to_string",
+		"opcode": 688,
+		"hasExtra": false
 	}
 ]
