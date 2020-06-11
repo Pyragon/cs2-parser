@@ -136,10 +136,120 @@ const returnStatement = A.coroutine(function* () {
 	});
 });
 
-const endBlock = A.sequenceOf([
-	A.optionalWhitespace,
-	A.char('}')
-]).map(up.asType('END_BLOCK'));
+const endBlockNoElse = A.coroutine(function* () {
+
+	yield A.optionalWhitespace;
+	yield A.char('}');
+
+	yield A.endOfInput;
+
+	return up.asType('END_BLOCK') ({
+		hasElse: false
+	});
+
+});
+
+const endWithElse = A.coroutine(function* () {
+
+	yield A.optionalWhitespace;
+
+	yield A.str('else');
+
+	yield A.whitespace;
+
+	let stmt = yield statement;
+
+	let results = yield A.choice([
+		A.char('{'),
+		A.endOfInput
+	]);
+
+	return up.asType('END_BLOCK') ({
+		hasElse: true,
+		statement: stmt,
+		hasBlock: results === '{'
+	});
+
+});
+
+const endBlockWithElse = A.coroutine(function* () {
+
+	yield A.optionalWhitespace;
+	yield A.char('}');
+
+	yield A.optionalWhitespace;
+
+	yield A.str('else');
+
+	yield A.whitespace;
+
+	let stmt = yield statement;
+
+	let results = yield A.choice([
+		A.char('{'),
+		A.endOfInput
+	]);
+
+	return up.asType('END_BLOCK') ({
+		hasElse: true,
+		statement: stmt,
+		hasBlock: results === '{'
+	});
+
+});
+
+const endWithElseNoStatement = A.coroutine(function* () {
+
+	yield A.optionalWhitespace;
+
+	yield A.str('else');
+
+	yield A.optionalWhitespace;
+
+	let results = yield A.choice([
+		A.char('{'),
+		A.endOfInput
+	]);
+
+	return up.asType('END_BLOCK') ({
+		hasElse: true,
+		statement: null,
+		hasBlock: results === '{'
+	});
+
+});
+
+const endBlockWithElseNoStatement = A.coroutine(function* () {
+
+	yield A.optionalWhitespace;
+	yield A.char('}');
+
+	yield A.optionalWhitespace;
+
+	yield A.str('else');
+
+	yield A.optionalWhitespace;
+
+	let results = yield A.choice([
+		A.char('{'),
+		A.endOfInput
+	]);
+
+	return up.asType('END_BLOCK') ({
+		hasElse: true,
+		statement: null,
+		hasBlock: results === '{'
+	});
+
+});
+
+const endBlock = A.choice([
+	endBlockNoElse,
+	endWithElse,
+	endBlockWithElse,
+	endWithElseNoStatement,
+	endBlockWithElseNoStatement
+]);
 
 module.exports = {
 	statement,

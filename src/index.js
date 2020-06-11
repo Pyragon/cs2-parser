@@ -24,12 +24,19 @@ const statementData = 'while(10 < 10 && (10 < 10 || 10 > 10)) {';
 const returnData = 'return calc(10 + 10);';
 const testBracket = 'if(10 < 10 && (10 < 10 || 10 > 10))';
 
-const fullScriptData = `//script_7(7)()(int)
+const fullScriptData = `//script18(18)()(void)
 int var1
+string var2
 var1 = 0
-while(var1 < 10) {
-	send_message(to_string(var1))
-	var1 = calc(var1 + 1)
+if(var1 < 10) {
+    var2 = to_string(var1)
+    send_message(var2)
+} else if(var1 < 11) {
+    var2 = to_string(var1)
+    send_message(var2)
+} else {
+    var2 = to_string(var1)
+    send_message(var2)
 }
 return`;
 

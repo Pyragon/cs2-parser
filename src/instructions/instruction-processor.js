@@ -59,7 +59,7 @@ const processInstructions = (data, variables, args) => {
 				variable = variables[name];
 				if (!variable) throw new Error('Unable to find variable: ' + name);
 				value = value.value;
-				processInstruction(value);
+				i = processInstruction(value, i);
 				switch (variable.type) {
 					case 'int':
 						instructions.push(_instructions['STORE_INT']);
@@ -77,8 +77,8 @@ const processInstructions = (data, variables, args) => {
 				}
 				break;
 			case 'CALC_FUNCTION_CALL':
-				processInstruction(instruction.value.right);
-				processInstruction(instruction.value.left);
+				i = processInstruction(instruction.value.right, i);
+				i = processInstruction(instruction.value.left, i);
 				switch (instruction.value.operator.value) {
 					case '+':
 						instructions.push(_instructions['ADD']);
@@ -104,8 +104,8 @@ const processInstructions = (data, variables, args) => {
 				params = instruction.value.params;
 				if (name.match(/script_?\d+/)) {
 					let id = parseInt(name.split(/script_?/)[1]);
-					for (let i = params.length - 1; i >= 0; i--)
-						processInstruction(params[i]);
+					for (let k = params.length - 1; k >= 0; k--)
+						i = processInstruction(params[k], i);
 					instructions.push(_instructions['CALL_CS2']);
 					iValues[opCount++] = id;
 					break;
@@ -116,14 +116,14 @@ const processInstructions = (data, variables, args) => {
 					if (!constant.type.includes('LITERAL'))
 						throw new Error('Only literal values for extra call: ' + name + ' ' + constant);
 
-					for (let i = params.length - 1; i >= 1; i--)
-						processInstruction(params[i]);
+					for (let k = params.length - 1; k >= 1; k--)
+						i = processInstruction(params[k], i);
 					instructions.push(instr);
 					iValues[opCount++] = constant.value.value;
 					break;
 				}
-				for (let i = params.length - 1; i >= 0; i--)
-					processInstruction(params[i]);
+				for (let k = params.length - 1; k >= 0; k--)
+					i = processInstruction(params[k], i);
 				instructions.push(instr);
 				iValues[opCount++] = 0;
 				break;
@@ -136,8 +136,10 @@ const processInstructions = (data, variables, args) => {
 					//no && or ||
 					// console.log(expressions[0].value.left);
 					let startIndex = opCount;
-					processInstruction(expressions[0].value.left);
-					processInstruction(expressions[0].value.right);
+					i = processInstruction(expressions[0].value.left, i);
+					i = processInstruction(expressions[0].value.right, i);
+					//TODO - check for booleans == (diff instruction)
+					//also check for just if(boolean) or if(script()/instruction())
 					switch (expressions[0].value.operator.value) {
 						case '<':
 							instructions.push(_instructions['INT_LT']);
@@ -167,20 +169,38 @@ const processInstructions = (data, variables, args) => {
 					instructions.push(_instructions['GOTO']);
 					let instrSizeI = opCount++;
 					iValues[instrSizeI] = 1;
+					let nextInstr;
 					if(!instruction.value.hasBlock) {
 						let nex = data[++i];
 						if (nex)
-							processInstruction(nex);
+							i = processInstruction(nex, i);
+						nex = data[i + 1];
+						if(nex.type !== 'END_BLOCK') {
+							iValues[instrSizeI] = opCount - instrSizeI - (instruction.value.type === 'if' ? 1 : 0);
+							break;
+						}
+						nextInstr = data[++i];
 					} else {
-						//TODO - else
-						let nextInstr;
 						while((nextInstr = data[++i]) != null && nextInstr.type != 'END_BLOCK')
-							processInstruction(nextInstr);
+							i = processInstruction(nextInstr, i);
 					}
-					iValues[instrSizeI] = opCount - instrSizeI - (instruction.value.type === 'if' ? 1 : 0);
+					iValues[instrSizeI] = opCount - instrSizeI - (instruction.value.type === 'if' && !nextInstr.value.hasElse ? 1 : 0);
 					if (instruction.value.type === 'while') {
 						instructions.push(_instructions['GOTO']);
 						iValues[opCount++] = startIndex - opCount;
+					}
+					if(nextInstr.value.hasElse) {
+						instructions.push(_instructions['GOTO']);
+						let elseIndex = opCount++;
+						iValues[elseIndex] = 0;
+						let inst = nextInstr;
+						if(nextInstr.value.statement !== null)
+							i = processInstruction(nextInstr.value.statement, i);
+						else {
+							while((nextInstr = data[++i]) != null && nextInstr.type != 'END_BLOCK')
+								i = processInstruction(nextInstr, i);
+						}
+						iValues[elseIndex] = opCount - elseIndex + (inst.value.statement !== null ? 1 : -1);
 					}
 					break;
 				}
@@ -188,7 +208,7 @@ const processInstructions = (data, variables, args) => {
 			case 'RETURN_STATEMENT':
 				value = instruction.value;
 				if (value.value != null)
-					processInstruction(value.value);
+					i = processInstruction(value.value, i);
 				instructions.push(_instructions['RETURN']);
 				iValues[opCount++] = 0;
 				break;
