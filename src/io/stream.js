@@ -2,7 +2,7 @@
 class Stream {
 
     constructor(size=16) {
-        this.array = new Uint8Array(size);
+        this.array = new Int8Array(size);
         this.offset = 0;
     }
 
@@ -53,7 +53,7 @@ class Stream {
         let length = end-start;
 
         for(let i = 0; i < length; i++) {
-            let c = value.charAt(i);
+            let c = value.charCodeAt(i);
             if(c > 0 && c < 128 || c >= 160 && c <= 255)
                 this.array[i + this.offset] = c;
             else if (c == 8364)
@@ -118,14 +118,17 @@ class Stream {
 
     checkCapacity(position) {
         if(position >= this.array.length) {
-            let newArr = new Uint8Array(position + 16);
+            let newArr = new Int8Array(position + 16);
             newArr.set(this.array);
             this.array = newArr;
         }
     }
 
     toArray() {
-        return this.array;
+        let newArr = new Int8Array(this.offset);
+        for(let i = 0; i < this.offset; i++)
+            newArr[i] = this.array[i];
+        return newArr;
     }
 
 }

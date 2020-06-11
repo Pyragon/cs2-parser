@@ -2,10 +2,7 @@
   "name": "cs2-parser",
   "version": "1.0.0",
   "description": "Parser for CS2 language",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "src/standalone.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pyragon/cs2-parser.git"

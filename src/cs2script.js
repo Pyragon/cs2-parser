@@ -56,6 +56,8 @@ class CS2Script {
 
 		let block = switchBlock.toArray();
 
+		console.log(block, block.length);
+
 		stream.writeBytes(block);
 
 		stream.writeShort(block.length)
