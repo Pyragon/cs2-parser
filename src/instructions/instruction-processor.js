@@ -20,7 +20,7 @@ const processInstructions = (data, variables, args) => {
 			case 'INT_LITERAL':
 				instr = _instructions['PUSH_INT'];
 				instructions.push(instr);
-				value = instruction.value.value; //undefined?
+				value = instruction.value.value;
 				if (instruction.value.negative) value = -value;
 				iValues[opCount++] = value;
 				break;
@@ -128,81 +128,71 @@ const processInstructions = (data, variables, args) => {
 				iValues[opCount++] = 0;
 				break;
 			case 'STATEMENT':
-				//save op count at start of statement.
-				//once we reach a 'END_BLOCK' instruction, 
-				//here we fuckin' go.........
-				let expressions = instruction.value.expr.value.expr.value.expr; //jesus fuck....
-				if (expressions.length == 1) {
-					//no && or ||
-					// console.log(expressions[0].value.left);
+				let expressions = instruction.value.expr.value.expr.value.expr;
+				let tillGoTo = [];
+				for(let expression of expressions) {
 					let startIndex = opCount;
-					i = processInstruction(expressions[0].value.left, i);
-					i = processInstruction(expressions[0].value.right, i);
-					//TODO - check for booleans == (diff instruction)
-					//also check for just if(boolean) or if(script()/instruction())
-					switch (expressions[0].value.operator.value) {
+					i = processInstruction(expression.value.left, i);
+					i = processInstruction(expression.value.right, i);
+					tillGoTo.push(opCount++);
+					switch (expression.value.operator.value) {
 						case '<':
 							instructions.push(_instructions['INT_LT']);
-							iValues[opCount++] = 1;
 							break;
 						case '>':
 							instructions.push(_instructions['INT_GT']);
-							iValues[opCount++] = 1;
 							break;
 						case '==':
 							instructions.push(_instructions['INT_EQ']);
-							iValues[opCount++] = 1;
 							break;
 						case '>=':
 							instructions.push(_instructions['INT_GE']);
-							iValues[opCount++] = 1;
 							break;
 						case '<=':
 							instructions.push(_instructions['INT_LE']);
-							iValues[opCount++] = 1;
 							break;
 						case '!=':
 							instructions.push(_instructions['INT_NE']);
-							iValues[opCount++] = 1;
 							break;
 					}
+				}
+				instructions.push(_instructions['GOTO']);
+				let instrSizeI = opCount++;
+				for(let goto of tillGoTo)
+					iValues[goto] = opCount - goto - 1;
+				iValues[instrSizeI] = 1;
+				let nextInstr;
+				if(!instruction.value.hasBlock) {
+					let nex = data[++i];
+					if (nex)
+						i = processInstruction(nex, i);
+					nex = data[i + 1];
+					if(nex.type !== 'END_BLOCK') {
+						iValues[instrSizeI] = opCount - instrSizeI - (instruction.value.type === 'if' ? 1 : 0);
+						break;
+					}
+					nextInstr = data[++i];
+				} else {
+					while((nextInstr = data[++i]) != null && nextInstr.type != 'END_BLOCK')
+						i = processInstruction(nextInstr, i);
+				}
+				iValues[instrSizeI] = opCount - instrSizeI - (instruction.value.type === 'if' && !nextInstr.value.hasElse ? 1 : 0);
+				if (instruction.value.type === 'while') {
 					instructions.push(_instructions['GOTO']);
-					let instrSizeI = opCount++;
-					iValues[instrSizeI] = 1;
-					let nextInstr;
-					if(!instruction.value.hasBlock) {
-						let nex = data[++i];
-						if (nex)
-							i = processInstruction(nex, i);
-						nex = data[i + 1];
-						if(nex.type !== 'END_BLOCK') {
-							iValues[instrSizeI] = opCount - instrSizeI - (instruction.value.type === 'if' ? 1 : 0);
-							break;
-						}
-						nextInstr = data[++i];
-					} else {
+					iValues[opCount++] = startIndex - opCount;
+				}
+				if(nextInstr.value.hasElse) {
+					instructions.push(_instructions['GOTO']);
+					let elseIndex = opCount++;
+					iValues[elseIndex] = 0;
+					let inst = nextInstr;
+					if(nextInstr.value.statement !== null)
+						i = processInstruction(nextInstr.value.statement, i);
+					else {
 						while((nextInstr = data[++i]) != null && nextInstr.type != 'END_BLOCK')
 							i = processInstruction(nextInstr, i);
 					}
-					iValues[instrSizeI] = opCount - instrSizeI - (instruction.value.type === 'if' && !nextInstr.value.hasElse ? 1 : 0);
-					if (instruction.value.type === 'while') {
-						instructions.push(_instructions['GOTO']);
-						iValues[opCount++] = startIndex - opCount;
-					}
-					if(nextInstr.value.hasElse) {
-						instructions.push(_instructions['GOTO']);
-						let elseIndex = opCount++;
-						iValues[elseIndex] = 0;
-						let inst = nextInstr;
-						if(nextInstr.value.statement !== null)
-							i = processInstruction(nextInstr.value.statement, i);
-						else {
-							while((nextInstr = data[++i]) != null && nextInstr.type != 'END_BLOCK')
-								i = processInstruction(nextInstr, i);
-						}
-						iValues[elseIndex] = opCount - elseIndex + (inst.value.statement !== null ? 1 : -1);
-					}
-					break;
+					iValues[elseIndex] = opCount - elseIndex + -1;
 				}
 				break;
 			case 'RETURN_STATEMENT':

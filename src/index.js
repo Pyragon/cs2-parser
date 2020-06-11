@@ -28,7 +28,7 @@ const fullScriptData = `//script18(18)()(void)
 int var1
 string var2
 var1 = 0
-if(var1 < 10) {
+if(var1 < 10 && var1 == 10) {
     var2 = to_string(var1)
     send_message(var2)
 } else if(var1 < 11) {
