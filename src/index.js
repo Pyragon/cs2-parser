@@ -94,5 +94,8 @@ let script = new CS2Script(id, name, args, variables, returnType, results);
 for(let i = 0; i < script.instructionData[3].length; i++)
 	console.log(script.instructionData[3][i].name+' '+script.instructionData[0][i]);
 
+let array = script.encode();
+console.log(array);
+
 //const result = s.statement.run(testBracket);
 //deepLog(result);
