@@ -125,6 +125,11 @@
 		"hasExtra": true
 	},
 	{
+		"name": "SWITCH",
+		"opcode": 377,
+		"hasExtra": true
+	},
+	{
 		"name": "send_message",
 		"opcode": 471,
 		"hasExtra": false

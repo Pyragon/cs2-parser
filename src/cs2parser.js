@@ -11,13 +11,17 @@ const CS2Script = require('./cs2script.js');
 
 let parser = A.choice([
 	scriptDataParser,
+	s.breakStatement,
+	s.switchStatement,
 	fc.functionCall,
 	v.variableCreateAssign,
 	v.variableCreation,
 	v.variableAssignation,
 	s.statement,
 	s.returnStatement,
-	s.endBlock
+	s.endBlock,
+	s.caseStatement,
+	s.continueStatement
 ]);
 
 const parseScript = function(scriptData) {

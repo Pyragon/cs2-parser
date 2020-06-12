@@ -39,8 +39,6 @@ class CS2Script {
 
 		stream.writeInt(this.instructionData[3].length);
 
-		console.log(this.variables);
-
 		stream.writeShort(this.variables.filter(e => e.type === 'int').length);
 		stream.writeShort(this.variables.filter(e => e.type === 'string').length);
 		stream.writeShort(this.variables.filter(e => e.type === 'long').length);
@@ -51,12 +49,27 @@ class CS2Script {
 
 		let switchBlock = new Stream();
 
-		//i now realize i never wrote switch parsers lawl
-		switchBlock.writeByte(0);
+		let switchMap = this.instructionData[5];
+
+		if(switchMap.length == 0)
+			switchBlock.writeByte(0);
+		else {
+
+			switchBlock.writeByte(switchMap.length);
+
+			for(let map of switchMap) {
+				switchBlock.writeShort(Object.values(map).length);
+
+				for(let key of Object.keys(map)) {
+					switchBlock.writeInt(key);
+					switchBlock.writeInt(map[key]);
+				}
+
+			}
+
+		}
 
 		let block = switchBlock.toArray();
-
-		console.log(block, block.length);
 
 		stream.writeBytes(block);
 

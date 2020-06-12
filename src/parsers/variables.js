@@ -74,7 +74,7 @@ const variableAssignation = A.coroutine(function* () {
 });
 
 module.exports = {
-    	variableCreation,
-    	variableAssignation,
+    variableCreation,
+    variableAssignation,
 	variableCreateAssign
 };

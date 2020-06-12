@@ -10,12 +10,16 @@ const processInstructions = (data, variables, args) => {
 
 	let opCount = 0;
 
+	let switchMap = [];
+	let switchIndex = 0;
+
 	const processInstruction = (instruction, i) => {
 		let name;
 		let value;
 		let variable;
 		let instr;
 		let params;
+		let nextInstr;
 		switch (instruction.type) {
 			case 'INT_LITERAL':
 				instr = _instructions['PUSH_INT'];
@@ -127,6 +131,31 @@ const processInstructions = (data, variables, args) => {
 				instructions.push(instr);
 				iValues[opCount++] = 0;
 				break;
+			case 'SWITCH_STATEMENT':
+				variable = instruction.value.variable;
+				i = processInstruction(variable, i);
+				instructions.push(_instructions['SWITCH']);
+				let si = switchIndex++;
+				iValues[opCount++] = si;
+				let tillEnd = [];
+				let cases = [];
+				let startIndex = opCount;
+				while((nextInstr = data[++i]).type !== 'END_BLOCK') {
+					if(nextInstr.type !== 'CASE_STATEMENT') throw new Error('Expected case statement!');
+					let literal = nextInstr.value.literal.value.value;
+					cases.push(literal);
+					instructions.push(_instructions['GOTO']);
+					tillEnd.push(opCount++);
+					while((nextInstr = data[++i]).type !== 'BREAK_STATEMENT')
+						i = processInstruction(nextInstr, i);
+				}
+				switchMap[si] = {};
+				for(let k = 0; k < tillEnd.length; k++) {
+					let till = tillEnd[k];
+					switchMap[si][cases[k]] = till - startIndex + 1;
+					iValues[till] = opCount - till - 1;
+				}
+				break;
 			case 'STATEMENT':
 				let expressions = instruction.value.expr.value.expr.value.expr;
 				let tillGoTo = [];
@@ -161,7 +190,6 @@ const processInstructions = (data, variables, args) => {
 				for(let goto of tillGoTo)
 					iValues[goto] = opCount - goto - 1;
 				iValues[instrSizeI] = 1;
-				let nextInstr;
 				if(!instruction.value.hasBlock) {
 					let nex = data[++i];
 					if (nex)
@@ -210,14 +238,9 @@ const processInstructions = (data, variables, args) => {
 		return i;
 	};
 
-	// let i;
-	// while(i < data.length) {
-	// 	i = processInstruction(data[i++],)
-	// }
-
 	for (let i = 0; i < data.length; i++)
 		i = processInstruction(data[i], i);
-	return [iValues, sValues, lValues, instructions, opCount];
+	return [iValues, sValues, lValues, instructions, opCount, switchMap];
 
 };
 

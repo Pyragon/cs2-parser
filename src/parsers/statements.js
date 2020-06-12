@@ -127,7 +127,6 @@ const returnStatement = A.coroutine(function* () {
 		up.intLiteral,
 		up.stringLiteral,
 		up.boolLiteral,
-		A.char(';'),
 		A.endOfInput
 	]);
 
@@ -251,8 +250,57 @@ const endBlock = A.choice([
 	endBlockWithElseNoStatement
 ]);
 
+const switchStatement = A.coroutine(function* () {
+
+	yield A.optionalWhitespace;
+
+	yield A.str('switch(');
+
+	let variable = yield up.variable;
+
+	yield A.char(')');
+	yield A.optionalWhitespace;
+	yield A.char('{');
+
+	return up.asType('SWITCH_STATEMENT') ({
+		variable
+	});
+});
+
+const caseStatement = A.coroutine(function* () {
+
+	yield A.optionalWhitespace;
+
+	yield A.str('case ');
+
+	let literal = yield up.intLiteral;
+
+	yield A.char(':');
+
+	return up.asType('CASE_STATEMENT') ({
+		literal
+	});
+
+});
+
+const breakStatement = A.sequenceOf([
+	A.optionalWhitespace,
+	A.str('break'),
+	A.optionalWhitespace
+]).map(up.asType('BREAK_STATEMENT'));
+
+const continueStatement = A.sequenceOf([
+	A.optionalWhitespace,
+	A.str('continue'),
+	A.optionalWhitespace
+]).map(up.asType('CONTINUE_STATEMENT'));
+
 module.exports = {
 	statement,
 	returnStatement,
+	switchStatement,
+	caseStatement,
+	breakStatement,
+	continueStatement,
 	endBlock
 };
