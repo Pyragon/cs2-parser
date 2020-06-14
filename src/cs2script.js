@@ -1,6 +1,7 @@
-const processor = require('./instructions/instruction-processor');
+const _instructions = require('./util/instructions.js');
+const _scripts = require('./util/scripts.js');
+const processor = require('./instruction-processor');
 const Stream = require('./io/stream');
-const _instructions = require('./instructions/instructions.js');
 const _ = require('underscore');
 
 class CS2Script {
@@ -11,7 +12,12 @@ class CS2Script {
 		this.args = Object.values(args);
 		this.variables = Object.values(variables);
 		this.returnType = returnType;
-		this.instructionData = processor(instructionData, variables, args);
+		this.loadData(instructionData, variables, args);
+	}
+
+	loadData(instructionData, variables, args) {
+		let data = processor(instructionData, variables, args);
+		[ this.iValues, this.sValues, this.lValues, this.instructions, this.opCount, this.switchMap ] = data;
 	}
 
 	encode() {
@@ -23,21 +29,21 @@ class CS2Script {
 		else
 			stream.writeString(this.name);
 		
-		for(let i = 0; i < this.instructionData[3].length; i++) {
-			let instruction = this.instructionData[3][i];
+		for(let i = 0; i < this.instructions.length; i++) {
+			let instruction = this.instructions[i];
 			if(!instruction) continue;
 			stream.writeShort(instruction.opcode);
 			if(instruction == _instructions['PUSH_STRING'])
-				stream.writeString(this.instructionData[1][i]);
+				stream.writeString(this.sValues[i]);
 			else if(instruction == _instructions['PUSH_LONG'])
-				stream.writeLong(this.instructionData[2][i]);
+				stream.writeLong(this.lValues[i]);
 			else if(instruction.hasExtra)
-				stream.writeInt(this.instructionData[0][i]);
+				stream.writeInt(this.iValues[i]);
 			else
-				stream.writeByte(this.instructionData[0][i]);
+				stream.writeByte(this.iValues[i]);
 		}
 
-		stream.writeInt(this.instructionData[3].length);
+		stream.writeInt(this.instructions.length);
 
 		stream.writeShort(this.variables.filter(e => e.type === 'int').length);
 		stream.writeShort(this.variables.filter(e => e.type === 'string').length);
@@ -49,7 +55,7 @@ class CS2Script {
 
 		let switchBlock = new Stream();
 
-		let switchMap = this.instructionData[5];
+		let switchMap = this.switchMap;
 
 		if(switchMap.length == 0)
 			switchBlock.writeByte(0);

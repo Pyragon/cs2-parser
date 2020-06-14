@@ -1,4 +1,4 @@
-const _instructions = require('./instructions');
+const _instructions = require('./util/instructions');
 
 const processInstructions = (data, variables, args) => {
 

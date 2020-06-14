@@ -66,8 +66,9 @@ const parseScript = function(scriptData) {
 	variables = _.indexBy(variables, 'name');
 	results.shift();
 	let script = new CS2Script(id, name, args, variables, returnType, results);
-	for(let i = 0; i < script.instructionData[3].length; i++)
-		console.log(script.instructionData[3][i].name+' '+script.instructionData[0][i]);
+	console.log(script);
+	for(let i = 0; i < script.instructions.length; i++)
+		console.log(script.instructions[i].name+' '+script.iValues[i]);
 	
 	let array = script.encode();
 

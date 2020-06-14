@@ -1,17 +1,18 @@
 const parser = require('./cs2parser')
 
-//TODO - cli functions (build-file, build-folder, etc)
-
 const fullScriptData = `//script18(18)()(void)
 int var1 = 10
-switch(var1) {
-    case 2:
-        send_message(var1);
-        break
-    case 10:
-        send_message(var1);
-        break
+string var2
+if(var1 < 10) {
+    var2 = to_string(var1)
+    send_message(var2)
+} else {
+    send_message("hello")
+    send_message("hello2")
+    send_message("hello3")
+    send_message("hello4")
+    send_message("hello5")
 }
-return`;
+return var1`;
 
-console.log(parser(fullScriptData));
+console.dir(parser(fullScriptData), {'maxArrayLength': null});
