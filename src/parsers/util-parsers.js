@@ -5,8 +5,8 @@ const mapJoin = parser => parser.map(items => items.join(''));
 const peek = A.lookAhead(A.regex(/^./));
 
 const commaSeperated = A.sepBy(A.sequenceOf([
-        A.char(','),
-        A.optionalWhitespace
+    A.char(','),
+    A.optionalWhitespace
 ]));
 
 const orSeperated = A.sepBy(A.sequenceOf([
@@ -22,31 +22,31 @@ const andSeperated = A.sepBy(A.sequenceOf([
 ]));
 
 const argumentTypeParser = A.choice([
-	A.str('int'),
-	A.str('boolean'),
-	A.str('string')
+    A.str('int'),
+    A.str('boolean'),
+    A.str('string')
 ]).map(asType("ARGUMENT_TYPE"));
 
 
 const variable = mapJoin(A.sequenceOf([
-        A.regex(/^[a-zA-Z_]/),
-        A.possibly(A.regex(/^[a-zA-Z0-9_]+/)).map(x => x === null ? '' : x)
+    A.regex(/^[a-zA-Z_]/),
+    A.possibly(A.regex(/^[a-zA-Z0-9_]+/)).map(x => x === null ? '' : x)
 ])).map(asType("VARIABLE"));
 
 const operator = A.choice([
-	A.char('+'),
-	A.char('-'),
-	A.char('/'),
-	A.char('*')
+    A.char('+'),
+    A.char('-'),
+    A.char('/'),
+    A.char('*')
 ]).map(asType('OPERATOR'));
 
 const statementOperator = A.choice([
-	A.char('<'),
-	A.char('>'),
-	A.str('=='),
-	A.str('!='),
-	A.str('<='),
-	A.str('>=')
+    A.char('<'),
+    A.char('>'),
+    A.str('=='),
+    A.str('!='),
+    A.str('<='),
+    A.str('>=')
 ]).map(asType('STATEMENT_OPERATOR'));
 
 const returnTypeParser = A.choice([
@@ -56,7 +56,7 @@ const returnTypeParser = A.choice([
     A.str('void')
 ]).map(asType("RETURN_TYPE"));
 
-const stringLiteral = A.coroutine(function* () {
+const stringLiteral = A.coroutine(function*() {
 
     yield A.char('"');
 
@@ -64,7 +64,7 @@ const stringLiteral = A.coroutine(function* () {
 
     yield A.char('"');
 
-    return asType("STRING_LITERAL") ({
+    return asType("STRING_LITERAL")({
         value
     });
 
@@ -75,24 +75,24 @@ const boolLiteral = A.choice([
     A.str('false')
 ]).map(asType("BOOL_LITERAL"));
 
-const positiveIntLiteral = A.coroutine(function* () {
+const positiveIntLiteral = A.coroutine(function*() {
 
     let value = yield A.digits;
 
-    return asType('INT_LITERAL') ({
+    return asType('INT_LITERAL')({
         negative: false,
         value
     });
 
 });
 
-const negativeIntLiteral = A.coroutine(function* () {
+const negativeIntLiteral = A.coroutine(function*() {
 
     yield A.char('-');
 
     let value = yield A.digits;
 
-    return asType('INT_LITERAL') ({
+    return asType('INT_LITERAL')({
         negative: true,
         value
     });
@@ -108,15 +108,15 @@ module.exports = {
     asType,
     mapJoin,
     peek,
-	operator,
+    operator,
     variable,
-	commaSeperated,
-	orSeperated,
-	andSeperated,
-	statementOperator,
+    commaSeperated,
+    orSeperated,
+    andSeperated,
+    statementOperator,
     argumentTypeParser,
     returnTypeParser,
     stringLiteral,
     boolLiteral,
-	intLiteral
+    intLiteral
 };

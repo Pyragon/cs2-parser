@@ -4,303 +4,308 @@ const up = require('./util-parsers');
 const v = require('./variables');
 const fc = require('./function-call');
 
-const bracketedAndExpression = A.coroutine(function* () {
-	
-	yield A.char('(');
+const bracketedAndExpression = A.coroutine(function*() {
 
-	let expr = yield up.andSeperated(A.choice([
-		expression,
-		bracketedExpression
-	]));
+    yield A.char('(');
 
-	yield A.char(')');
+    let expr = yield up.andSeperated(A.choice([
+        expression,
+        bracketedExpression
+    ]));
 
-	return up.asType('AND_SEP') ({
-		expr
-	});
+    yield A.char(')');
+
+    return up.asType('AND_SEP')({
+        expr
+    });
 
 });
 
-const bracketedOrExpression = A.coroutine(function* () {
-	
-	yield A.char('(');
+const bracketedOrExpression = A.coroutine(function*() {
 
-	let expr = yield up.orSeperated(A.choice([
-		expression,
-		bracketedExpression
-	]));
+    yield A.char('(');
 
-	yield A.char(')');
+    let expr = yield up.orSeperated(A.choice([
+        expression,
+        bracketedExpression
+    ]));
 
-	return up.asType('OR_SEP') ({
-		expr
-	});
+    yield A.char(')');
+
+    return up.asType('OR_SEP')({
+        expr
+    });
 
 });
 
 //normal bracketed expression, no splits
-const bracketedExpression = A.coroutine(function* () {
+const bracketedExpression = A.coroutine(function*() {
 
-	let expr = yield A.choice([
-		bracketedAndExpression,
-		bracketedOrExpression
-	]);
+    let expr = yield A.choice([
+        bracketedAndExpression,
+        bracketedOrExpression
+    ]);
 
-	return up.asType('BRACKETED_EXPRESSION') ({
-		expr
-	});
-
-});
-
-const expression = A.coroutine(function* () {
-
-	yield A.optionalWhitespace;
-
-	let left = yield A.choice([
-		bracketedExpression,
-		fc.calcFunctionCall,
-		fc.functionCall,
-		up.variable,
-		up.intLiteral,
-		up.boolLiteral
-	]);
-
-	yield A.optionalWhitespace;
-
-	let operator = yield up.statementOperator;
-
-	yield A.optionalWhitespace;
-
-	let right = yield A.choice([
-		bracketedExpression,
-		fc.calcFunctionCall,
-		fc.functionCall,
-		up.variable,
-		up.intLiteral,
-		up.boolLiteral
-	]);
-
-	return up.asType('EXPRESSION') ({
-		left,
-		operator,
-		right
-	});
+    return up.asType('BRACKETED_EXPRESSION')({
+        expr
+    });
 
 });
 
-const statement = A.coroutine(function* () {
-	
-	let type = yield A.choice([
-		A.str('if'),
-		A.str('while'),
-	]);
+const expression = A.coroutine(function*() {
 
-	let expr = yield bracketedExpression;
+    yield A.optionalWhitespace;
 
-	yield A.optionalWhitespace;
+    let left = yield A.choice([
+        bracketedExpression,
+        fc.calcFunctionCall,
+        fc.toStringCall,
+        fc.functionCall,
+        up.variable,
+        up.intLiteral,
+        up.boolLiteral
+    ]);
 
-	let results = yield A.choice([
-		A.char('{'),
-		A.endOfInput
-	]);
+    yield A.optionalWhitespace;
 
-	return up.asType('STATEMENT') ({
-		type,
-		expr,
-		hasBlock: results === '{'
-	})
+    let operator = yield up.statementOperator;
 
-});
+    yield A.optionalWhitespace;
 
-const returnStatement = A.coroutine(function* () {
+    let right = yield A.choice([
+        bracketedExpression,
+        fc.calcFunctionCall,
+        fc.toStringCall,
+        fc.functionCall,
+        up.variable,
+        up.intLiteral,
+        up.boolLiteral
+    ]);
 
-	yield A.optionalWhitespace;
-
-	yield A.str('return');
-
-	yield A.optionalWhitespace;
-
-	let value = yield A.choice([
-		fc.calcFunctionCall,
-		fc.functionCall,
-		up.variable,
-		up.intLiteral,
-		up.stringLiteral,
-		up.boolLiteral,
-		A.endOfInput
-	]);
-
-	return up.asType('RETURN_STATEMENT') ({
-		value: value === ';' ? null : value
-	});
-});
-
-const endBlockNoElse = A.coroutine(function* () {
-
-	yield A.optionalWhitespace;
-	yield A.char('}');
-
-	yield A.endOfInput;
-
-	return up.asType('END_BLOCK') ({
-		hasElse: false
-	});
+    return up.asType('EXPRESSION')({
+        left,
+        operator,
+        right
+    });
 
 });
 
-const endWithElse = A.coroutine(function* () {
+const statement = A.coroutine(function*() {
 
-	yield A.optionalWhitespace;
+    yield A.optionalWhitespace;
 
-	yield A.str('else');
+    let type = yield A.choice([
+        A.str('if'),
+        A.str('while'),
+    ]);
 
-	yield A.whitespace;
+    let expr = yield bracketedExpression;
 
-	let stmt = yield statement;
+    yield A.optionalWhitespace;
 
-	let results = yield A.choice([
-		A.char('{'),
-		A.endOfInput
-	]);
+    let results = yield A.choice([
+        A.char('{'),
+        A.endOfInput
+    ]);
 
-	return up.asType('END_BLOCK') ({
-		hasElse: true,
-		statement: stmt,
-		hasBlock: results === '{'
-	});
-
-});
-
-const endBlockWithElse = A.coroutine(function* () {
-
-	yield A.optionalWhitespace;
-	yield A.char('}');
-
-	yield A.optionalWhitespace;
-
-	yield A.str('else');
-
-	yield A.whitespace;
-
-	let stmt = yield statement;
-
-	let results = yield A.choice([
-		A.char('{'),
-		A.endOfInput
-	]);
-
-	return up.asType('END_BLOCK') ({
-		hasElse: true,
-		statement: stmt,
-		hasBlock: results === '{'
-	});
+    return up.asType('STATEMENT')({
+        type,
+        expr,
+        hasBlock: results === '{'
+    })
 
 });
 
-const endWithElseNoStatement = A.coroutine(function* () {
+const returnStatement = A.coroutine(function*() {
 
-	yield A.optionalWhitespace;
+    yield A.optionalWhitespace;
 
-	yield A.str('else');
+    yield A.str('return');
 
-	yield A.optionalWhitespace;
+    yield A.optionalWhitespace;
 
-	let results = yield A.choice([
-		A.char('{'),
-		A.endOfInput
-	]);
+    let value = yield up.commaSeperated(A.choice([
+        fc.calcFunctionCall,
+        fc.toStringCall,
+        fc.functionCall,
+        up.variable,
+        up.intLiteral,
+        up.stringLiteral,
+        up.boolLiteral,
+        A.endOfInput
+    ]));
 
-	return up.asType('END_BLOCK') ({
-		hasElse: true,
-		statement: null,
-		hasBlock: results === '{'
-	});
+    return up.asType('RETURN_STATEMENT')({
+        value
+    });
+});
+
+const endBlockNoElse = A.coroutine(function*() {
+
+    yield A.optionalWhitespace;
+    yield A.char('}');
+
+    yield A.endOfInput;
+
+    return up.asType('END_BLOCK')({
+        hasElse: false
+    });
 
 });
 
-const endBlockWithElseNoStatement = A.coroutine(function* () {
+const endWithElse = A.coroutine(function*() {
 
-	yield A.optionalWhitespace;
-	yield A.char('}');
+    yield A.optionalWhitespace;
 
-	yield A.optionalWhitespace;
+    yield A.str('else');
 
-	yield A.str('else');
+    yield A.whitespace;
 
-	yield A.optionalWhitespace;
+    let stmt = yield statement;
 
-	let results = yield A.choice([
-		A.char('{'),
-		A.endOfInput
-	]);
+    let results = yield A.choice([
+        A.char('{'),
+        A.endOfInput
+    ]);
 
-	return up.asType('END_BLOCK') ({
-		hasElse: true,
-		statement: null,
-		hasBlock: results === '{'
-	});
+    return up.asType('END_BLOCK')({
+        hasElse: true,
+        statement: stmt,
+        hasBlock: results === '{'
+    });
+
+});
+
+const endBlockWithElse = A.coroutine(function*() {
+
+    yield A.optionalWhitespace;
+    yield A.char('}');
+
+    yield A.optionalWhitespace;
+
+    yield A.str('else');
+
+    yield A.whitespace;
+
+    let stmt = yield statement;
+
+    let results = yield A.choice([
+        A.char('{'),
+        A.endOfInput
+    ]);
+
+    return up.asType('END_BLOCK')({
+        hasElse: true,
+        statement: stmt,
+        hasBlock: results === '{'
+    });
+
+});
+
+const endWithElseNoStatement = A.coroutine(function*() {
+
+    yield A.optionalWhitespace;
+
+    yield A.str('else');
+
+    yield A.optionalWhitespace;
+
+    let results = yield A.choice([
+        A.char('{'),
+        A.endOfInput
+    ]);
+
+    return up.asType('END_BLOCK')({
+        hasElse: true,
+        statement: null,
+        hasBlock: results === '{'
+    });
+
+});
+
+const endBlockWithElseNoStatement = A.coroutine(function*() {
+
+    yield A.optionalWhitespace;
+    yield A.char('}');
+
+    yield A.optionalWhitespace;
+
+    yield A.str('else');
+
+    yield A.optionalWhitespace;
+
+    let results = yield A.choice([
+        A.char('{'),
+        A.endOfInput
+    ]);
+
+    return up.asType('END_BLOCK')({
+        hasElse: true,
+        statement: null,
+        hasBlock: results === '{'
+    });
 
 });
 
 const endBlock = A.choice([
-	endBlockNoElse,
-	endWithElse,
-	endBlockWithElse,
-	endWithElseNoStatement,
-	endBlockWithElseNoStatement
+    endBlockNoElse,
+    endWithElse,
+    endBlockWithElse,
+    endWithElseNoStatement,
+    endBlockWithElseNoStatement
 ]);
 
-const switchStatement = A.coroutine(function* () {
+const switchStatement = A.coroutine(function*() {
 
-	yield A.optionalWhitespace;
+    yield A.optionalWhitespace;
 
-	yield A.str('switch(');
+    yield A.str('switch(');
 
-	let variable = yield up.variable;
+    let variable = yield up.variable;
 
-	yield A.char(')');
-	yield A.optionalWhitespace;
-	yield A.char('{');
+    yield A.char(')');
+    yield A.optionalWhitespace;
+    yield A.char('{');
 
-	return up.asType('SWITCH_STATEMENT') ({
-		variable
-	});
+    return up.asType('SWITCH_STATEMENT')({
+        variable
+    });
 });
 
-const caseStatement = A.coroutine(function* () {
+const caseStatement = A.coroutine(function*() {
 
-	yield A.optionalWhitespace;
+    yield A.optionalWhitespace;
 
-	yield A.str('case ');
+    yield A.str('case ');
 
-	let literal = yield up.intLiteral;
+    let literal = yield up.intLiteral;
 
-	yield A.char(':');
+    yield A.char(':');
 
-	return up.asType('CASE_STATEMENT') ({
-		literal
-	});
+    return up.asType('CASE_STATEMENT')({
+        literal
+    });
 
 });
 
 const breakStatement = A.sequenceOf([
-	A.optionalWhitespace,
-	A.str('break'),
-	A.optionalWhitespace
+    A.optionalWhitespace,
+    A.str('break'),
+    A.optionalWhitespace
 ]).map(up.asType('BREAK_STATEMENT'));
 
 const continueStatement = A.sequenceOf([
-	A.optionalWhitespace,
-	A.str('continue'),
-	A.optionalWhitespace
+    A.optionalWhitespace,
+    A.str('continue'),
+    A.optionalWhitespace
 ]).map(up.asType('CONTINUE_STATEMENT'));
 
 module.exports = {
-	statement,
-	returnStatement,
-	switchStatement,
-	caseStatement,
-	breakStatement,
-	continueStatement,
-	endBlock
+    statement,
+    returnStatement,
+    switchStatement,
+    caseStatement,
+    breakStatement,
+    continueStatement,
+    endBlock
 };

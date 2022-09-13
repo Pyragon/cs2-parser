@@ -1,7 +1,6 @@
-
 class Stream {
 
-    constructor(size=16) {
+    constructor(size = 16) {
         this.array = new Int8Array(size);
         this.offset = 0;
     }
@@ -32,29 +31,29 @@ class Stream {
 
     writeLong(value) {
         writeByte(value >> 56);
-		writeByte(value >> 48);
-		writeByte(value >> 40);
-		writeByte(value >> 32);
-		writeByte(value >> 24);
-		writeByte(value >> 16);
-		writeByte(value >> 8);
-		writeByte(value);
+        writeByte(value >> 48);
+        writeByte(value >> 40);
+        writeByte(value >> 32);
+        writeByte(value >> 24);
+        writeByte(value >> 16);
+        writeByte(value >> 8);
+        writeByte(value);
     }
 
     writeString(value) {
-        let first = value.indexOf(0);
-        if(first >= 0) throw new Error('');
+        // let first = value.indexOf(0);
+        // if (first >= 0) throw new Error('');
         this.checkCapacity(this.offset + value.length + 1);
         this.offset += this.writeStringUtil(value, 0, value.length);
         this.array[this.offset++] = 0;
     }
 
     writeStringUtil(value, start, end) {
-        let length = end-start;
+        let length = end - start;
 
-        for(let i = 0; i < length; i++) {
+        for (let i = 0; i < length; i++) {
             let c = value.charCodeAt(i);
-            if(c > 0 && c < 128 || c >= 160 && c <= 255)
+            if (c > 0 && c < 128 || c >= 160 && c <= 255)
                 this.array[i + this.offset] = c;
             else if (c == 8364)
                 this.array[i + this.offset] = -128;
@@ -117,7 +116,7 @@ class Stream {
     }
 
     checkCapacity(position) {
-        if(position >= this.array.length) {
+        if (position >= this.array.length) {
             let newArr = new Int8Array(position + 16);
             newArr.set(this.array);
             this.array = newArr;
@@ -126,7 +125,7 @@ class Stream {
 
     toArray() {
         let newArr = new Int8Array(this.offset);
-        for(let i = 0; i < this.offset; i++)
+        for (let i = 0; i < this.offset; i++)
             newArr[i] = this.array[i];
         return newArr;
     }

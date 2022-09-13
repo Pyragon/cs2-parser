@@ -1,142 +1,5633 @@
-[
-	{
-		"name": "PUSH_INT",
-		"opcode": 79,
-		"hasExtra": true
-	},
-	{
-		"name": "PUSH_STRING",
-		"opcode": 57,
-		"hasExtra": true
-	},
-	{
-		"name": "PUSH_LONG",
-		"opcode": 633,
-		"hasExtra": true
-	},
-	{
-		"name": "STORE_INT",
-		"opcode": 168,
-		"hasExtra": true
-	},
-	{
-		"name": "STORE_STRING",
-		"opcode": 356,
-		"hasExtra": true
-	},
-	{
-		"name": "STORE_LONG",
-		"opcode": 987,
-		"hasExtra": true
-	},
-	{
-		"name": "LOAD_INT",
-		"opcode": 500,
-		"hasExtra": true
-	},
-	{
-		"name": "LOAD_STRING",
-		"opcode": 799,
-		"hasExtra": true
-	},
-	{
-		"name": "LOAD_LONG",
-		"opcode": 473,
-		"hasExtra": true
-	},
-	{
-		"name": "ADD",
-		"opcode": 279,
-		"hasExtra": false
-	},
-	{
-		"name": "SUBTRACT",
-		"opcode": 130,
-		"hasExtra": true
-	},
-	{
-		"name": "DIVIDE",
-		"opcode": 56,
-		"hasExtra": false
-	},
-	{
-		"name": "MULTIPLY",
-		"opcode": 367,
-		"hasExtra": false
-	},
-	{
-		"name": "RETURN",
-		"opcode": 184,
-		"hasExtra": false
-	},
-	{
-		"name": "load_varc",
-		"opcode": 311,
-		"hasExtra": true
-	},
-	{
-		"name": "store_varc",
-		"opcode": 510,
-		"hasExtra": true
-	},
-	{
-		"name": "CALL_CS2",
-		"opcode": 902,
-		"hasExtra": true
-	},
-	{
-		"name": "INT_LT",
-		"opcode": 566,
-		"hasExtra": true
-	},
-	{
-		"name": "INT_GT",
-		"opcode": 939,
-		"hasExtra": true
-	},
-	{
-		"name": "GOTO",
-		"opcode": 123,
-		"hasExtra": true
-	},
-	{
-		"name": "if_isopen",
-		"opcode": 888,
-		"hasExtra": false
-	},
-	{
-		"name": "INT_EQ",
-		"opcode": 933,
-		"hasExtra": true
-	},
-	{
-		"name": "INT_GE",
-		"opcode": 319,
-		"hasExtra": true
-	},
-	{
-		"name": "INT_LE",
-		"opcode": 670,
-		"hasExtra": true
-	},
-	{
-		"name": "INT_NE",
-		"opcode": 693,
-		"hasExtra": true
-	},
-	{
-		"name": "SWITCH",
-		"opcode": 377,
-		"hasExtra": true
-	},
-	{
-		"name": "send_message",
-		"opcode": 471,
-		"hasExtra": false
-	},
-	{
-		"name": "to_string",
-		"opcode": 688,
-		"hasExtra": false
-	}
+[{
+        "name": "PUSH_INT",
+        "opcode": 79,
+        "hasExtra": true
+    },
+    {
+        "name": "PUSH_STRING",
+        "opcode": 57,
+        "hasExtra": true
+    },
+    {
+        "name": "PUSH_LONG",
+        "opcode": 633,
+        "hasExtra": true
+    },
+    {
+        "name": "STORE_INT",
+        "opcode": 168,
+        "hasExtra": true
+    },
+    {
+        "name": "STRUCT_PARAM",
+        "opcode": 594,
+        "hasExtra": false,
+        "hasExtraValue": true
+    },
+    {
+        "name": "HOOK_MOUSE_PRESS",
+        "opcode": 881,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "instr6393",
+        "opcode": 486,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "IF_SETONMOUSEOVER",
+        "opcode": 753,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "instr6253",
+        "opcode": 532,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "instr6248",
+        "opcode": 730,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "STORE_STRING",
+        "opcode": 356,
+        "hasExtra": true
+    },
+    {
+        "name": "STORE_VARC_STRING",
+        "opcode": 21,
+        "hasExtra": true
+    },
+    {
+        "name": "STORE_VARPBIT",
+        "opcode": 371,
+        "hasExtra": true
+    },
+    {
+        "name": "STORE_LONG",
+        "opcode": 987,
+        "hasExtra": true
+    },
+    {
+        "name": "LOAD_INT",
+        "opcode": 500,
+        "hasExtra": true
+    },
+    {
+        "name": "ARRAY_NEW",
+        "opcode": 235,
+        "hasExtra": true
+    },
+    {
+        "name": "LOAD_STRING",
+        "opcode": 799,
+        "hasExtra": true
+    },
+    {
+        "name": "LOAD_VARC_STRING",
+        "opcode": 700,
+        "hasExtra": true
+    },
+    {
+        "name": "LOAD_VARP",
+        "opcode": 154,
+        "hasExtra": true
+    },
+    {
+        "name": "LOAD_VARPBIT",
+        "opcode": 408,
+        "hasExtra": true
+    },
+    {
+        "name": "POP_STRING",
+        "opcode": 354,
+        "hasExtra": false
+    },
+    {
+        "name": "POP_INT",
+        "opcode": 492,
+        "hasExtra": false
+    },
+    {
+        "name": "LOAD_LONG",
+        "opcode": 473,
+        "hasExtra": true
+    },
+    {
+        "name": "ADD",
+        "opcode": 279,
+        "hasExtra": false
+    },
+    {
+        "name": "SUBTRACT",
+        "opcode": 130,
+        "hasExtra": false
+    },
+    {
+        "name": "DIVIDE",
+        "opcode": 56,
+        "hasExtra": false
+    },
+    {
+        "name": "MULTIPLY",
+        "opcode": 367,
+        "hasExtra": false
+    },
+    {
+        "name": "RETURN",
+        "opcode": 184,
+        "hasExtra": false
+    },
+    {
+        "name": "ARRAY_LOAD",
+        "opcode": 859,
+        "hasExtra": true
+    },
+    {
+        "name": "ARRAY_STORE",
+        "opcode": 116,
+        "hasExtra": true
+    },
+    {
+        "name": "MERGE_STRINGS",
+        "opcode": 531,
+        "hasExtra": true
+    },
+    {
+        "name": "LOAD_VARC",
+        "opcode": 311,
+        "hasExtra": true
+    },
+    {
+        "name": "STORE_VARC",
+        "opcode": 510,
+        "hasExtra": true
+    },
+    {
+        "name": "CALL_CS2",
+        "opcode": 902,
+        "hasExtra": true
+    },
+    {
+        "name": "INT_LT",
+        "opcode": 566,
+        "hasExtra": true
+    },
+    {
+        "name": "INT_GT",
+        "opcode": 939,
+        "hasExtra": true
+    },
+    {
+        "name": "GOTO",
+        "opcode": 123,
+        "hasExtra": true
+    },
+    {
+        "name": "INT_EQ",
+        "opcode": 933,
+        "hasExtra": true
+    },
+    {
+        "name": "LONG_NE",
+        "opcode": 908,
+        "hasExtra": true
+    },
+    {
+        "name": "LONG_EQ",
+        "opcode": 381,
+        "hasExtra": true
+    },
+    {
+        "name": "LONG_LT",
+        "opcode": 597,
+        "hasExtra": true
+    },
+    {
+        "name": "LONG_GT",
+        "opcode": 237,
+        "hasExtra": true
+    },
+    {
+        "name": "LONG_LE",
+        "opcode": 465,
+        "hasExtra": true
+    },
+    {
+        "name": "LONG_GE",
+        "opcode": 142,
+        "hasExtra": true
+    },
+    {
+        "name": "INT_GE",
+        "opcode": 319,
+        "hasExtra": true
+    },
+    {
+        "name": "instr6091",
+        "opcode": 1,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "instr6687",
+        "opcode": 457,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "instr6092",
+        "opcode": 665,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "CC_SETONMOUSEOVER",
+        "opcode": 207,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "instr6224",
+        "opcode": 705,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "instr6499",
+        "opcode": 392,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "instr5957",
+        "opcode": 158,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "instr6246",
+        "opcode": 550,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "LOAD_CLAN_SETTING_VAR_LONG",
+        "opcode": 83,
+        "hasExtra": true
+    },
+    {
+        "name": "INT_LE",
+        "opcode": 670,
+        "hasExtra": true
+    },
+    {
+        "name": "INT_NE",
+        "opcode": 693,
+        "hasExtra": true
+    },
+    {
+        "name": "SWITCH",
+        "opcode": 377,
+        "hasExtra": true
+    },
+    {
+        "name": "ENUM",
+        "opcode": 540,
+        "hasExtra": false
+    },
+    {
+        "name": "send_message",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 471,
+        "hasExtra": false
+    },
+    {
+        "name": "to_string",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "string",
+        "opcode": 688,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANSETTINGS_GETAFFINEDCOUNT",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 706,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANSETTINGS_GETCLANNAME",
+        "popOrder": [],
+        "returnType": "string",
+        "opcode": 815,
+        "hasExtra": false
+    },
+    {
+        "name": "LOAD_CLAN_SETTING_VAR_STRING",
+        "opcode": 910,
+        "hasExtra": true
+    },
+    {
+        "name": "ACTIVECLANSETTINGS_GETSORTEDAFFINEDSLOT",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 956,
+        "hasExtra": false
+    },
+    {
+        "name": "SET_GENDER",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 325,
+        "hasExtra": false
+    },
+    {
+        "name": "SET_ITEM",
+        "popOrder": ["i", "i"],
+        "returnType": "void",
+        "opcode": 925,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETMAXLINES",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 77,
+        "hasExtra": false
+    },
+    {
+        "name": "FC_GETCHATUSERWORLD",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 587,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_CURRENTTOOLKIT",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 725,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6305",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 422,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6632",
+        "popOrder": ["i", "i"],
+        "returnType": "void",
+        "opcode": 288,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6803",
+        "popOrder": ["i", "i"],
+        "returnType": "void",
+        "opcode": 233,
+        "hasExtra": false
+    },
+    {
+        "name": "USERDETAIL_LOBBY_CCEXPIRY",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 679,
+        "hasExtra": false
+    },
+    {
+        "name": "FRIEND_GETNAMES",
+        "popOrder": ["i"],
+        "returnType": "string,string",
+        "opcode": 252,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6663",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 893,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6108",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 868,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6684",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 483,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6631",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 662,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6308",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 84,
+        "hasExtra": false
+    },
+    {
+        "name": "CHECK_JAVA_VERSION",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 826,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETCLICKMASK",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 924,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_STEREO",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 383,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_CHARACTER_SHADOWS",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 226,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_CPU",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 90,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_MAXSCREENSIZE",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 568,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_SKYBOX",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 332,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_PARTICLES",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 703,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILCANSET_SKYBOXES",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 53,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILCANSET_MAXSCREENSIZE",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 921,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILCANMOD_MAXSCREENSIZE",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 446,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_BLOOM",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 752,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILCANMOD_SKYBOXES",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 821,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILCANSET_PARTICLES",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 876,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_SKYBOXES",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 581,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILCANMOD_PARTICLES",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 803,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_GROUND_BLENDING",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 464,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_CPU",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 804,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_LIGHTDETAIL_HIGH",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 281,
+        "hasExtra": false
+    },
+    {
+        "name": "instr5975",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 712,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_BLOOM",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 564,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_SCENERY_SHADOWS",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 270,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_WATERDETAIL_HIGH",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 487,
+        "hasExtra": false
+    },
+    {
+        "name": "FRIEND_GETWORLDFLAGS",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 562,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_LIGHT_DETAIL",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 891,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_TEXTURES",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 418,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6617",
+        "popOrder": [],
+        "returnType": "int,int",
+        "opcode": 674,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6674",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 269,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6065",
+        "popOrder": ["i", "i"],
+        "returnType": "void",
+        "opcode": 878,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_BRIGHTNESS",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 848,
+        "hasExtra": false
+    },
+    {
+        "name": "FRIEND_IS_REFERRER",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 656,
+        "hasExtra": false
+    },
+    {
+        "name": "IGNORE_GETNAME_UNFILTERED",
+        "popOrder": ["i"],
+        "returnType": "string",
+        "opcode": 37,
+        "hasExtra": false
+    },
+    {
+        "name": "MEC_TEXT",
+        "popOrder": ["i"],
+        "returnType": "string",
+        "opcode": 985,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_MONO_STEREO",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 26,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_SCENERY_SHADOWS",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 390,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_FOG",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 193,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_DEFAULT_ANTIALIASING",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 458,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_TOOLKIT",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 734,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_GETMODELTYPE",
+        "popOrder": ["ic"],
+        "returnType": "int",
+        "opcode": 864,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6074",
+        "popOrder": ["i", "i"],
+        "returnType": "int",
+        "opcode": 975,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6607",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 386,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6616",
+        "popOrder": [],
+        "returnType": "int,int",
+        "opcode": 788,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6613",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 830,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6849",
+        "popOrder": [],
+        "returnType": "int,int",
+        "opcode": 560,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_CHARACTER_SHADOWS",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 646,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_FLICKERING_EFFECTS",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 71,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_TEXTURES",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 218,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6204",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 273,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6712",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 569,
+        "hasExtra": false
+    },
+    {
+        "name": "USERDETAIL_LOBBY_RECOVERYDAY",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 379,
+        "hasExtra": false
+    },
+    {
+        "name": "USERDETAIL_LOBBY_LASTLOGINDAY",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 236,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6628",
+        "popOrder": ["i", "i"],
+        "returnType": "void",
+        "opcode": 641,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6838",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 766,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6620",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 923,
+        "hasExtra": false
+    },
+    {
+        "name": "SETUP_MESSAGEBOX",
+        "popOrder": ["i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i"],
+        "returnType": "void",
+        "opcode": 211,
+        "hasExtra": false
+    },
+    {
+        "name": "INV_TOTALCAT",
+        "popOrder": ["i", "i"],
+        "returnType": "int",
+        "opcode": 192,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6097",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 423,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6150",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 3,
+        "hasExtra": false
+    },
+    {
+        "name": "FC_KICKUSER",
+        "popOrder": ["s"],
+        "returnType": "void",
+        "opcode": 421,
+        "hasExtra": false
+    },
+    {
+        "name": "FRIEND_GETRANK",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 732,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6599",
+        "popOrder": ["s", "i"],
+        "returnType": "int",
+        "opcode": 711,
+        "hasExtra": false
+    },
+    {
+        "name": "FRIEND_SETRANK",
+        "popOrder": ["s", "i"],
+        "returnType": "void",
+        "opcode": 647,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_BRIGHTNESS",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 849,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6612",
+        "popOrder": [],
+        "returnType": "int,int",
+        "opcode": 16,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_IDLE_ANIMATIONS",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 794,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_IDLE_ANIMATIONS",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 553,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_FOG",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 685,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6858",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 773,
+        "hasExtra": false
+    },
+    {
+        "name": "FROMBILLING",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 655,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETALPHA",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 209,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6410",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 672,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6207",
+        "popOrder": ["ic", "i", "i"],
+        "returnType": "void",
+        "opcode": 518,
+        "hasExtra": false
+    },
+    {
+        "name": "SEND_VERIFY_EMAIL_PACKET",
+        "popOrder": ["s"],
+        "returnType": "void",
+        "opcode": 654,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6737",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 659,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETLINEDIRECTION",
+        "popOrder": ["ic", "i"],
+        "returnType": "void",
+        "opcode": 760,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_FLICKERING_EFFECTS",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 585,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_GROUND_DECOR",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 268,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_GROUND_DECOR",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 372,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_WATERDETAIL_HIGH",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 232,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6639",
+        "popOrder": ["i", "i"],
+        "returnType": "int",
+        "opcode": 785,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_ANTIALIASING_DEFAULT",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 380,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6680",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 507,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETALPHA",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 209,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_REMOVE_ROOFS",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 983,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6609",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 484,
+        "hasExtra": false
+    },
+    {
+        "name": "instr5954",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 419,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6643",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 691,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6225",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 961,
+        "hasExtra": false
+    },
+    {
+        "name": "CONTAINER_TOTAL_PARAM",
+        "popOrder": ["i", "i"],
+        "returnType": "int",
+        "opcode": 696,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETUSEOPTIONSTRING",
+        "popOrder": ["ic", "s"],
+        "returnType": "void",
+        "opcode": 583,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6404",
+        "popOrder": ["i"],
+        "returnType": "int,int",
+        "opcode": 596,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6745",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 348,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6645",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 818,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6406",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 617,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6938",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 782,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6752",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 817,
+        "hasExtra": false
+    },
+    {
+        "name": "PROFILE_CPU",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 930,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6476",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 576,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6647",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 649,
+        "hasExtra": false
+    },
+    {
+        "name": "USERDETAIL_DOB",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 407,
+        "hasExtra": false
+    },
+    {
+        "name": "SEND_SIGNUP_FORM_PACKET",
+        "popOrder": ["s", "s", "i", "i"],
+        "returnType": "void",
+        "opcode": 686,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_REMOVEROOFS_OPTION_OVERRIDE",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 992,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6589",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 303,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6720",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 917,
+        "hasExtra": false
+    },
+    {
+        "name": "USERDETAIL_LOBBY_UNREADMESSAGES",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 241,
+        "hasExtra": false
+    },
+    {
+        "name": "USERDETAIL_LOBBY_LASTLOGINADDRESS",
+        "popOrder": [],
+        "returnType": "string",
+        "opcode": 78,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6867",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 106,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6829",
+        "popOrder": [],
+        "returnType": "int,int,string,int,string,int,int,string",
+        "opcode": 915,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6227",
+        "popOrder": [],
+        "returnType": "int,int,string,int,string,int,int,string",
+        "opcode": 212,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6671",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 775,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6101",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 44,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6709",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 945,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6630",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 969,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6642",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 885,
+        "hasExtra": false
+    },
+    {
+        "name": "USERDETAIL_LOBBY_EMAILSTATUS",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 54,
+        "hasExtra": false
+    },
+    {
+        "name": "FORMAT_DATETIME_FROM_MINUTES",
+        "popOrder": ["i"],
+        "returnType": "string",
+        "opcode": 339,
+        "hasExtra": false
+    },
+    {
+        "name": "FRIEND_GETWORLDNAME",
+        "popOrder": ["i"],
+        "returnType": "string",
+        "opcode": 767,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6439",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 410,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6611",
+        "popOrder": ["i"],
+        "returnType": "string",
+        "opcode": 726,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6700",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 9,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6857",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 312,
+        "hasExtra": false
+    },
+    {
+        "name": "USERDETAIL_LOBBY_MEMBERSHIP",
+        "popOrder": [],
+        "returnType": "int,int,int",
+        "opcode": 148,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6090",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 441,
+        "hasExtra": false
+    },
+    {
+        "name": "IGNORE_GETNAMES",
+        "popOrder": ["i"],
+        "returnType": "string,string",
+        "opcode": 284,
+        "hasExtra": false
+    },
+    {
+        "name": "WORLDLIST_PINGWORLDS",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 678,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6610",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 397,
+        "hasExtra": false
+    },
+    {
+        "name": "USERDETAIL_LOBBY_PLAYAGE",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 393,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6803",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 233,
+        "hasExtra": false
+    },
+    {
+        "name": "AUTOSETUP_SETHIGH",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 398,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6210",
+        "popOrder": ["ic"],
+        "returnType": "void",
+        "opcode": 499,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6808",
+        "popOrder": ["i", "i", "i", "i"],
+        "returnType": "void",
+        "opcode": 296,
+        "hasExtra": false
+    },
+    {
+        "name": "PLAYERMOD",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 81,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6702",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 742,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6416",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 477,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6922",
+        "popOrder": ["i", "i"],
+        "returnType": "void",
+        "opcode": 261,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILCANSET_RENDERER",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 616,
+        "hasExtra": false
+    },
+    {
+        "name": "AUTOSETUP_SETMEDIUM",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 837,
+        "hasExtra": false
+    },
+    {
+        "name": "FC_GETCHATUSERWORLDNAME",
+        "popOrder": ["i"],
+        "returnType": "string",
+        "opcode": 943,
+        "hasExtra": false
+    },
+    {
+        "name": "IGNORE_ADD_TEMP",
+        "popOrder": ["s"],
+        "returnType": "void",
+        "opcode": 954,
+        "hasExtra": false
+    },
+    {
+        "name": "CHAT_SENDABUSEREPORT",
+        "popOrder": ["s", "s", "i", "i"],
+        "returnType": "void",
+        "opcode": 257,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6323",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 92,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILCANMOD_TOOLKIT",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 850,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6653",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 716,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6852",
+        "popOrder": [],
+        "returnType": "int,int",
+        "opcode": 1005,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6784",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 42,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6775",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 737,
+        "hasExtra": false
+    },
+    {
+        "name": "AUTOSETUP_SETLOW",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 225,
+        "hasExtra": false
+    },
+    {
+        "name": "AUTOSETUP_SETMIN",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 955,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_GETUSEONNAME",
+        "popOrder": [],
+        "returnType": "string",
+        "opcode": 125,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETSPRITESCALE",
+        "popOrder": ["ic", "i"],
+        "returnType": "void",
+        "opcode": 527,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6162",
+        "popOrder": ["i", "i", "i", "i"],
+        "returnType": "void",
+        "opcode": 99,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6675",
+        "popOrder": ["i", "i", "i", "i"],
+        "returnType": "void",
+        "opcode": 570,
+        "hasExtra": false
+    },
+    {
+        "name": "RANDOM_INCLUSIVE",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 851,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6711",
+        "popOrder": [],
+        "returnType": "int,int",
+        "opcode": 391,
+        "hasExtra": false
+    },
+    {
+        "name": "BASE_COLOR",
+        "popOrder": ["i", "i"],
+        "returnType": "void",
+        "opcode": 156,
+        "hasExtra": false
+    },
+    {
+        "name": "BASE_IDKIT",
+        "popOrder": ["i", "i"],
+        "returnType": "void",
+        "opcode": 613,
+        "hasExtra": false
+    },
+    {
+        "name": "GET_COL_TAG",
+        "popOrder": ["i"],
+        "returnType": "string",
+        "opcode": 874,
+        "hasExtra": false
+    },
+    {
+        "name": "FC_GETCHATMINKICK",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 346,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_OPENSUBCLIENT",
+        "popOrder": ["i", "i"],
+        "returnType": "void",
+        "opcode": 360,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_GETOPTIONNAME",
+        "popOrder": ["ic", "i"],
+        "returnType": "string",
+        "opcode": 164,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_GRAPHICS",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 952,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETMAXTEXTLINES",
+        "popOrder": ["ic", "i"],
+        "returnType": "void",
+        "opcode": 432,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6212",
+        "popOrder": ["i"],
+        "returnType": "int,int",
+        "opcode": 603,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6697",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 362,
+        "hasExtra": false
+    },
+    {
+        "name": "ITEM_MINIMENU_COLOUR",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 213,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_MAXSCREENSIZE",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 714,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANSETTINGS_GETRANKTALK",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 91,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANSETTINGS_GETAFFINEDDISPLAYNAME",
+        "popOrder": ["i"],
+        "returnType": "string",
+        "opcode": 541,
+        "hasExtra": false
+    },
+    {
+        "name": "FC_GETCHATRANK",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 854,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6627",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 722,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANSETTINGS_GETALLOWUNAFFINED",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 843,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETTARGETCURSOR",
+        "popOrder": ["ic", "i", "i"],
+        "returnType": "void",
+        "opcode": 896,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETVFLIP",
+        "popOrder": ["ic", "i"],
+        "returnType": "void",
+        "opcode": 503,
+        "hasExtra": false
+    },
+    {
+        "name": "CLANFORUMQFC_TOSTRING",
+        "popOrder": ["l"],
+        "returnType": "string",
+        "opcode": 454,
+        "hasExtra": false
+    },
+    {
+        "name": "APPEND_NUM",
+        "popOrder": ["s", "i"],
+        "returnType": "string",
+        "opcode": 310,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6821",
+        "popOrder": ["i"],
+        "returnType": "int,int,int",
+        "opcode": 17,
+        "hasExtra": false
+    },
+    {
+        "name": "GETCLIPBOARD",
+        "popOrder": [],
+        "returnType": "string",
+        "opcode": 853,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANSETTINGS_GETCURRENTOWNER_SLOT",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 962,
+        "hasExtra": false
+    },
+    {
+        "name": "FC_ISSELF",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 802,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6716",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 759,
+        "hasExtra": false
+    },
+    {
+        "name": "RESUME_CLANFORUMQFCDIALOG",
+        "popOrder": ["s"],
+        "returnType": "void",
+        "opcode": 101,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETOPCURSOR",
+        "popOrder": [
+            "ic",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 122,
+        "hasExtra": false
+    },
+    {
+        "name": "SOUND_SYNTH",
+        "popOrder": [
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 2,
+        "hasExtra": false
+    },
+    {
+        "name": "CHAT_SETFILTER",
+        "popOrder": [
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 424,
+        "hasExtra": false
+    },
+    {
+        "name": "FRIEND_GETWORLD",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 51,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANCHANNEL_GETSORTEDUSERSLOT",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 5,
+        "hasExtra": false
+    },
+    {
+        "name": "FC_GETDISPLAYNAME",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "string",
+        "opcode": 699,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6792",
+        "popOrder": [
+            "i",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 47,
+        "hasExtra": false
+    },
+    {
+        "name": "RESUME_STRINGDIALOG",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 4,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETGRAPHIC",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 415,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETSCROLLSIZE",
+        "popOrder": [
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 628,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6648",
+        "popOrder": [
+            "s",
+            "s",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 577,
+        "hasExtra": false
+    },
+    {
+        "name": "STRING_LENGTH",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "int",
+        "opcode": 247,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETGRAPHIC",
+        "popOrder": [
+            "ic",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 529,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6202",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 946,
+        "hasExtra": false
+    },
+    {
+        "name": "INV_SIZE",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 157,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETHFLIP",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 185,
+        "hasExtra": false
+    },
+    {
+        "name": "CHAT_GETFILTER_PUBLIC",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 860,
+        "hasExtra": false
+    },
+    {
+        "name": "CHAT_GETFILTER_TRADE",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 839,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6764",
+        "popOrder": ["i", "i"],
+        "returnType": "void",
+        "opcode": 745,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6252",
+        "opcode": 179,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "QC_GETNAME",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "string",
+        "opcode": 927,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_GETSCROLLWIDTH",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 496,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_GETSCROLLX",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 932,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_DELETE",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 981,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6594",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 795,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_GETOFFSETY",
+        "popOrder": ["ic"],
+        "returnType": "int",
+        "opcode": 463,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6214",
+        "popOrder": ["ic", "i", "i"],
+        "returnType": "void",
+        "opcode": 899,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6030",
+        "popOrder": ["i", "i"],
+        "returnType": "int",
+        "opcode": 988,
+        "hasExtra": false
+    },
+    {
+        "name": "QC_GETMESSAGE",
+        "popOrder": ["i", "i"],
+        "returnType": "int",
+        "opcode": 604,
+        "hasExtra": false
+    },
+    {
+        "name": "CHAR_TOUPPERCASE",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 153,
+        "hasExtra": false
+    },
+    {
+        "name": "QC_SETMESSAGE",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 187,
+        "hasExtra": false
+    },
+    {
+        "name": "QC_SENDPUBLICMESSAGE",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 329,
+        "hasExtra": false
+    },
+    {
+        "name": "QC_SENDPRIVATEMESSAGE",
+        "popOrder": ["s"],
+        "returnType": "void",
+        "opcode": 909,
+        "hasExtra": false
+    },
+    {
+        "name": "QC_SENDFRIENDSCHATMESSAGE",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 922,
+        "hasExtra": false
+    },
+    {
+        "name": "QC_SENDCLANCHATMESSAGE",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 285,
+        "hasExtra": false
+    },
+    {
+        "name": "QC_SENDGUESTCLANCHATMESSAGE",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 663,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6596",
+        "popOrder": ["i", "i"],
+        "returnType": "void",
+        "opcode": 109,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6597",
+        "popOrder": ["i", "i"],
+        "returnType": "void",
+        "opcode": 217,
+        "hasExtra": false
+    },
+    {
+        "name": "QC_GETSUBHOTKEY",
+        "popOrder": ["i", "i"],
+        "returnType": "int",
+        "opcode": 713,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6595",
+        "popOrder": ["i", "i"],
+        "returnType": "int",
+        "opcode": 324,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6581",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 10,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6657",
+        "popOrder": [
+            "i",
+            "i",
+            "i",
+            "i",
+            "i",
+            "i",
+            "i",
+            "i",
+            "i",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 6,
+        "hasExtra": false
+    },
+    {
+        "name": "if_setposition",
+        "popOrder": [
+            "ic",
+            "i",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 937,
+        "hasExtra": false
+    },
+    {
+        "name": "if_setsize",
+        "popOrder": [
+            "ic",
+            "i",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 982,
+        "hasExtra": false
+    },
+    {
+        "name": "if_settextfont",
+        "popOrder": [
+            "ic",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 85,
+        "hasExtra": false
+    },
+    {
+        "name": "if_sethide",
+        "popOrder": [
+            "ic",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 590,
+        "hasExtra": false
+    },
+    {
+        "name": "inv_total",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 485,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_deleteall",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "void",
+        "opcode": 572,
+        "hasExtra": false
+    },
+    {
+        "name": "paramheight",
+        "popOrder": [
+            "s",
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 469,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_settrans",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 320,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6823",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 8,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_setitem",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 13,
+        "hasExtra": false
+    },
+    {
+        "name": "container_free_space",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 20,
+        "hasExtra": false
+    },
+    {
+        "name": "item_wearpos",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 22,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6650",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 567,
+        "hasExtra": false
+    },
+    {
+        "name": "PARAWIDTH",
+        "popOrder": [
+            "s",
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 43,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6069",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 661,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6651",
+        "popOrder": [
+            "i",
+            "i",
+            "i",
+            "i",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 46,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6277",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 38,
+        "hasExtra": false
+    },
+    {
+        "name": "escape",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "string",
+        "opcode": 49,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6661",
+        "popOrder": [
+            "i",
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 61,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6676",
+        "popOrder": [
+            "i",
+            "ic"
+        ],
+        "returnType": "void",
+        "opcode": 68,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6879",
+        "popOrder": [
+            "ic",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 72,
+        "hasExtra": false
+    },
+    {
+        "name": "client_clock",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 80,
+        "hasExtra": false
+    },
+    {
+        "name": "ITEM_CERT",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 94,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6279",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 96,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_settextshadow",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 103,
+        "hasExtra": false
+    },
+    {
+        "name": "SUBSTRING",
+        "popOrder": [
+            "s",
+            "i",
+            "i"
+        ],
+        "returnType": "string",
+        "opcode": 108,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_ISOPEN",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 888,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_sethide",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 112,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_create",
+        "popOrder": [
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 113,
+        "hasExtra": false
+    },
+    {
+        "name": "RESUME_COUNTDIALOG",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 117,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANCHANNEL_FIND_LISTENED",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 884,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6288",
+        "popOrder": ["i"],
+        "returnType": "int,int",
+        "opcode": 997,
+        "hasExtra": false
+    },
+    {
+        "name": "MAX",
+        "popOrder": ["i", "i"],
+        "returnType": "int",
+        "opcode": 750,
+        "hasExtra": false
+    },
+    {
+        "name": "MIN",
+        "popOrder": ["i", "i"],
+        "returnType": "int",
+        "opcode": 538,
+        "hasExtra": false
+    },
+    {
+        "name": "SCALE",
+        "popOrder": ["i", "i", "i"],
+        "returnType": "int",
+        "opcode": 277,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6601",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 227,
+        "hasExtra": false
+    },
+    {
+        "name": "CHAR_TOLOWERCASE",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 977,
+        "hasExtra": false
+    },
+    {
+        "name": "set_chat_type",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 118,
+        "hasExtra": false
+    },
+    {
+        "name": "set_bit",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 119,
+        "hasExtra": false
+    },
+    {
+        "name": "if_getlayer",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 135,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_GETOFFSETX",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 721,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETITEM",
+        "popOrder": [
+            "ic",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 388,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6621",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 676,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETALPHA",
+        "popOrder": [
+            "ic",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 368,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETTEXTALIGN",
+        "popOrder": [
+            "ic",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 741,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6598",
+        "popOrder": [
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 349,
+        "hasExtra": false
+    },
+    {
+        "name": "MES_TYPED",
+        "popOrder": [
+            "i",
+            "i",
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 913,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6239",
+        "opcode": 172,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "instr6148",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 137,
+        "hasExtra": false
+    },
+    {
+        "name": "inv_getnum",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 138,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_setsize",
+        "popOrder": [
+            "i",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 140,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6704",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 141,
+        "hasExtra": false
+    },
+    {
+        "name": "enum_getreversecount",
+        "popOrder": [
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 149,
+        "hasExtra": false
+    },
+    {
+        "name": "CHAR_ISALPHANUMERIC",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 150,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANSETTINGS_GETAFFINEDRANK",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 166,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_ISHIDDEN",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 747,
+        "hasExtra": false
+    },
+    {
+        "name": "FC_GETCHATDISPLAYNAME",
+        "popOrder": [],
+        "returnType": "string",
+        "opcode": 765,
+        "hasExtra": false
+    },
+    {
+        "name": "ITEM_FINDNEXT",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 623,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6583",
+        "popOrder": ["i"],
+        "returnType": "string",
+        "opcode": 328,
+        "hasExtra": false
+    },
+    {
+        "name": "FC_GETCHATCOUNT",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 1002,
+        "hasExtra": false
+    },
+    {
+        "name": "ITEM_FIND",
+        "popOrder": ["s", "i"],
+        "returnType": "int",
+        "opcode": 800,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6141",
+        "popOrder": [],
+        "returnType": "int,int",
+        "opcode": 936,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6790",
+        "popOrder": ["i", "i"],
+        "returnType": "void",
+        "opcode": 607,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6088",
+        "opcode": 813,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "ACTIVECLANCHANNEL_GETCLANNAME",
+        "popOrder": [],
+        "returnType": "string",
+        "opcode": 370,
+        "hasExtra": false
+    },
+    {
+        "name": "REMOVETAGS",
+        "popOrder": ["s"],
+        "returnType": "string",
+        "opcode": 41,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6666",
+        "popOrder": ["i", "i"],
+        "returnType": "void",
+        "opcode": 110,
+        "hasExtra": false
+    },
+    {
+        "name": "if_gety",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 170,
+        "hasExtra": false
+    },
+    {
+        "name": "ignore_add",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 177,
+        "hasExtra": false
+    },
+    {
+        "name": "modulo",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 178,
+        "hasExtra": false
+    },
+    {
+        "name": "inv_getitem",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 180,
+        "hasExtra": false
+    },
+    {
+        "name": "FRIEND_COUNT",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 183,
+        "hasExtra": false
+    },
+    {
+        "name": "userdetail_quickchat",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 201,
+        "hasExtra": false
+    },
+    {
+        "name": "WORLD_LANGUAGE",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 202,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_getparent",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 204,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SET2DANGLE",
+        "popOrder": [
+            "ic",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 205,
+        "hasExtra": false
+    },
+    {
+        "name": "RESUME_NAMEDIALOG",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 216,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6075",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 223,
+        "hasExtra": false
+    },
+    {
+        "name": "if_setclickmask",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 224,
+        "hasExtra": false
+    },
+    {
+        "name": "chat_getmessage",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "string",
+        "opcode": 231,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6213",
+        "popOrder": [
+            "ic",
+            "i",
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 255,
+        "hasExtra": false
+    },
+    {
+        "name": "POP_2_INT",
+        "opcode": 65,
+        "hasExtra": false
+    },
+    {
+        "name": "SEND_PRIVATE_MESSAGE",
+        "popOrder": [
+            "s",
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 743,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_CUSTOMCURSOR",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 181,
+        "hasExtra": false
+    },
+    {
+        "name": "RANDOM",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 675,
+        "hasExtra": false
+    },
+    {
+        "name": "COMLEVEL_ACTIVE",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 139,
+        "hasExtra": false
+    },
+    {
+        "name": "COORD",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 389,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6255",
+        "opcode": 630,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "instr6237",
+        "opcode": 244,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "instr6652",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 595,
+        "hasExtra": false
+    },
+    {
+        "name": "RUNENERGY_VISIBLE",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 944,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETNPCHEAD",
+        "popOrder": [
+            "i",
+            "ic"
+        ],
+        "returnType": "void",
+        "opcode": 857,
+        "hasExtra": false
+    },
+    {
+        "name": "RANDOM_SOUND_PITCH",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 729,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETNOCLICKTHROUGH",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 668,
+        "hasExtra": false
+    },
+    {
+        "name": "OPPLAYER",
+        "popOrder": [
+            "i",
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 162,
+        "hasExtra": false
+    },
+    {
+        "name": "SOUND_VORBIS_VOLUME",
+        "popOrder": [
+            "i",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 516,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6237",
+        "opcode": 244,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "IF_SETONMOUSELEAVE",
+        "opcode": 809,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "instr6556",
+        "opcode": 957,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "instr6771",
+        "opcode": 832,
+        "hasExtra": false,
+        "hasExtraValue": false
+    },
+    {
+        "name": "instr6677",
+        "popOrder": [
+            "i",
+            "i",
+            "i",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 107,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6236",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 396,
+        "hasExtra": false
+    },
+    {
+        "name": "ITEM_PARAM",
+        "opcode": 120,
+        "hasExtra": false,
+        "hasExtraValue": true
+    },
+    {
+        "name": "IF_SETMODELTINT",
+        "popOrder": [
+            "i",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 82,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_dragpickup",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 259,
+        "hasExtra": false
+    },
+    {
+        "name": "if_getwidth",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 263,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_setcolor",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 274,
+        "hasExtra": false,
+        "isColour": true
+    },
+    {
+        "name": "cc_setopbase",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 275,
+        "hasExtra": false
+    },
+    {
+        "name": "bit_flagged",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 278,
+        "hasExtra": false
+    },
+    {
+        "name": "TOSTRING_LOCALIZED",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "string",
+        "opcode": 280,
+        "hasExtra": false
+    },
+    {
+        "name": "append",
+        "popOrder": [
+            "s",
+            "s"
+        ],
+        "returnType": "string",
+        "opcode": 286,
+        "hasExtra": false
+    },
+    {
+        "name": "item_useonname",
+        "popOrder": [
+            "i",
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 289,
+        "hasExtra": false
+    },
+    {
+        "name": "chat_playername",
+        "popOrder": [],
+        "returnType": "string",
+        "opcode": 292,
+        "hasExtra": false
+    },
+    {
+        "name": "fc_joinchat",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 293,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6507",
+        "opcode": 768,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "instr6251",
+        "opcode": 416,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "STORE_VARP",
+        "opcode": 929,
+        "hasExtra": true
+    },
+    {
+        "name": "CC_SETMODELORTHOG",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 363,
+        "hasExtra": false
+    },
+    {
+        "name": "CHAT_GETCLAN",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "string",
+        "opcode": 622,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6231",
+        "opcode": 143,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "BIT_AND",
+        "opcode": 199,
+        "hasExtra": false
+    },
+    {
+        "name": "NPC_PARAM",
+        "opcode": 425,
+        "hasExtra": false
+    },
+    {
+        "name": "BIT_OR",
+        "opcode": 474,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6103",
+        "opcode": 991,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "BIT_NOT",
+        "opcode": 534,
+        "hasExtra": false
+    },
+    {
+        "name": "PLAYERMEMBER",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 262,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETMODELANIM",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 32,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6714",
+        "popOrder": [],
+        "returnType": "int,int,int",
+        "opcode": 666,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6116",
+        "opcode": 70,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "instr6802",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 256,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETSCROLLPOS",
+        "popOrder": ["i", "i"],
+        "returnType": "void",
+        "opcode": 126,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANCHANNEL_GETRANKTALK",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 489,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6710",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 447,
+        "hasExtra": false
+    },
+    {
+        "name": "WORLD_ID",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 601,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6717",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 509,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6694",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 171,
+        "hasExtra": false
+    },
+    {
+        "name": "GET_MOUSEBUTTONS",
+        "popOrder": [],
+        "returnType": "int,int,int",
+        "opcode": 453,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETSCROLLSIZE",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 28,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETASPECT",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 341,
+        "hasExtra": false
+    },
+    {
+        "name": "PLAYERMODLEVEL",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 718,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_GETTRANSPARENCY",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 34,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_GETSPRITEYAW",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 648,
+        "hasExtra": false
+    },
+    {
+        "name": "RUNENERGY_VISIBLE",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 944,
+        "hasExtra": false
+    },
+    {
+        "name": "RUNWEIGHT_VISIBLE",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 866,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_GETOPTIONFLAGS",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 467,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_ISOPENWITHID",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 448,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_ISOPENWITHID2",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 331,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETSPRITESHADOW",
+        "popOrder": [
+            "ic",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 131,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SENDTOFRONT",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 993,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6686",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 155,
+        "hasExtra": false
+    },
+    {
+        "name": "STOCKMARKET_GETOFFERTYPE",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 414,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6096",
+        "opcode": 315,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "IF_SETOPTIONNAME",
+        "popOrder": [
+            "ic",
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 790,
+        "hasExtra": false
+    },
+    {
+        "name": "MOVECOORD",
+        "popOrder": [
+            "i",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 48,
+        "hasExtra": false
+    },
+    {
+        "name": "ITEM_STACKABLE",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 905,
+        "hasExtra": false
+    },
+    {
+        "name": "LOBBY_CLICKHYPERLINK",
+        "popOrder": [
+            "s",
+            "s",
+            "s",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 343,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_SOUNDEFFECT_VOLUME",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 828,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_BGSOUNDVOL",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 417,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETOPCURSOR",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 176,
+        "hasExtra": false
+    },
+    {
+        "name": "RESUME_ITEMDIALOG",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 304,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6235",
+        "opcode": 478,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "instr6240",
+        "opcode": 926,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "GET_ENTITY_BOUNDING_BOX",
+        "popOrder": [],
+        "returnType": "int,int,int,int,int",
+        "opcode": 95,
+        "hasExtra": false
+    },
+    {
+        "name": "GET_OBJECT_BOUNDING_BOX",
+        "popOrder": [],
+        "returnType": "int,int,int,int,int",
+        "opcode": 69,
+        "hasExtra": false
+    },
+    {
+        "name": "GET_ITEM_BOUNDING_BOX",
+        "popOrder": [],
+        "returnType": "int,int,int,int,int",
+        "opcode": 517,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6215",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 495,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6655",
+        "popOrder": [
+            "s",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 355,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETFILL",
+        "popOrder": [
+            "ic",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 918,
+        "hasExtra": false
+    },
+    {
+        "name": "GET_ACTIVE_MINIMENU_ENTRY",
+        "popOrder": [],
+        "returnType": "int,string,string,string",
+        "opcode": 115,
+        "hasExtra": false
+    },
+    {
+        "name": "LOAD_CLAN_VAR",
+        "opcode": 717,
+        "hasExtra": true
+    },
+    {
+        "name": "LOAD_CLAN_SETTING_VAR",
+        "opcode": 73,
+        "hasExtra": true
+    },
+    {
+        "name": "instr6260",
+        "opcode": 401,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "IF_GETCOLOR",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 798,
+        "hasExtra": false
+    },
+    {
+        "name": "GET_MINIMENU_TARGET",
+        "popOrder": [],
+        "returnType": "int,string,string",
+        "opcode": 814,
+        "hasExtra": false
+    },
+    {
+        "name": "RESUME_HSLDIALOG",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 238,
+        "hasExtra": false
+    },
+    {
+        "name": "HSVTORGB",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 586,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_CLEARSCRIPTS",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 702,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANSETTINGS_FIND_LISTENED",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 833,
+        "hasExtra": false
+    },
+    {
+        "name": "TEXT_SWITCH",
+        "popOrder": [
+            "s",
+            "s"
+        ],
+        "returnType": "string",
+        "opcode": 15,
+        "hasExtra": false
+    },
+    {
+        "name": "APPEND_SIGNNUM",
+        "popOrder": [
+            "s",
+            "i"
+        ],
+        "returnType": "string",
+        "opcode": 573,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6218",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 627,
+        "hasExtra": false
+    },
+    {
+        "name": "GET_MINIMENU_LENGTH",
+        "popOrder": [],
+        "returnType": "int,int",
+        "opcode": 50,
+        "hasExtra": false
+    },
+    {
+        "name": "GET_MOUSE_X",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 243,
+        "hasExtra": false
+    },
+    {
+        "name": "GET_MOUSE_Y",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 308,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETTEXTANTIMACRO",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 644,
+        "hasExtra": false
+    },
+    {
+        "name": "GET_ENTITY_SCREEN_POSITION",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int,int,int",
+        "opcode": 330,
+        "hasExtra": false
+    },
+    {
+        "name": "GET_OBJECT_SCREEN_POSITION",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int,int,int",
+        "opcode": 439,
+        "hasExtra": false
+    },
+    {
+        "name": "GET_ITEM_SCREEN_POSITION",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int,int,int",
+        "opcode": 450,
+        "hasExtra": false
+    },
+    {
+        "name": "EMAIL_VALIDATION_CHANGE_ADDRESS",
+        "popOrder": [
+            "s",
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 121,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6623",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 242,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6629",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 455,
+        "hasExtra": false
+    },
+    {
+        "name": "GET_CURRENTCURSOR",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 980,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6721",
+        "popOrder": [],
+        "returnType": "string",
+        "opcode": 357,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6911",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 669,
+        "hasExtra": false
+    },
+    {
+        "name": "GET_OBJECT_OVERLAY_HEIGHT",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 433,
+        "hasExtra": false
+    },
+    {
+        "name": "GET_ITEM_OVERLAY_HEIGHT",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 295,
+        "hasExtra": false
+    },
+    {
+        "name": "EMAIL_VALIDATION_SUBMIT_CODE",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 364,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_GETCONTAINERITEMID",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 808,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6703",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 498,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6698",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 684,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6365",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 55,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_GETSCROLLY",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 755,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_MUSICVOL",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 276,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_VOICEOVERVOLUME",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 632,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETLINEDIRECTION",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 965,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_GETOFFSETX",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 97,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_GETOFFSETY",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 728,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETLINEWIDTH",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 124,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_GETSPRITEROLL",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 555,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETMODELZOOM",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 159,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SET2DANGLE",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 196,
+        "hasExtra": false
+    },
+    {
+        "name": "BAS_GETANIM_READY",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 456,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_GETPARENTLAYER",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 626,
+        "hasExtra": false
+    },
+    {
+        "name": "STOCKMARKET_ISOFFERADDING",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 361,
+        "hasExtra": false
+    },
+    {
+        "name": "STOCKMARKET_GETOFFERITEM",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 602,
+        "hasExtra": false
+    },
+    {
+        "name": "STOCKMARKET_ISOFFERFINISHED",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 984,
+        "hasExtra": false
+    },
+    {
+        "name": "STOCKMARKET_GETOFFERCOUNT",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 27,
+        "hasExtra": false
+    },
+    {
+        "name": "STOCKMARKET_GETOFFERPRICE",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 575,
+        "hasExtra": false
+    },
+    {
+        "name": "STOCKMARKET_GETOFFERCOMPLETEDCOUNT",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 480,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETONMOUSELEAVE",
+        "opcode": 191,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "instr6095",
+        "opcode": 697,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "instr6899",
+        "opcode": 886,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "instr6232",
+        "opcode": 382,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "instr6254",
+        "opcode": 947,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "instr6094",
+        "opcode": 892,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "IF_GETSPRITEID",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 169,
+        "hasExtra": false
+    },
+    {
+        "name": "STOCKMARKET_ISOFFEREMPTY",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 650,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_CLEARSCRIPTHOOKS",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "void",
+        "opcode": 64,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SENDTOBACK",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 584,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SENDTOFRONT",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "void",
+        "opcode": 515,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SENDTOBACK",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "void",
+        "opcode": 246,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_AMBIENTSOUND_VOLUME",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 919,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETPLAYERMODEL_SELF",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 443,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETITEM_ALWAYSNUM",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 998,
+        "hasExtra": false
+    },
+    {
+        "name": "LOAD_CLAN_SETTING_VARBIT",
+        "opcode": 147,
+        "hasExtra": true
+    },
+    {
+        "name": "instr6376",
+        "opcode": 758,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "instr6898",
+        "opcode": 105,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "LOAD_CLAN_VARBIT",
+        "opcode": 220,
+        "hasExtra": true
+    },
+    {
+        "name": "instr6450",
+        "opcode": 374,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "instr6527",
+        "opcode": 770,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "WORLDLIST_SETWORLD",
+        "popOrder": [
+            "i",
+            "s"
+        ],
+        "returnType": "int",
+        "opcode": 239,
+        "hasExtra": false
+    },
+    {
+        "name": "WORLDLIST_GETINFO",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int,string,int,string,int,int,string",
+        "opcode": 960,
+        "hasExtra": false
+    },
+    {
+        "name": "STAT_VISIBLE_XP",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 772,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILSET_SOUNDVOL",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 358,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6707",
+        "popOrder": [
+            "s",
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 19,
+        "hasExtra": false
+    },
+    {
+        "name": "SOUND_JINGLE",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 920,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETTILING",
+        "popOrder": [
+            "ic",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 460,
+        "hasExtra": false
+    },
+    {
+        "name": "STOCKMARKET_GETOFFERCOMPLETEDGOLD",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 687,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6641",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 182,
+        "hasExtra": false
+    },
+    {
+        "name": "ENUM_HASOUTPUT",
+        "popOrder": [
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 60,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETNOCLICKTHROUGH",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 787,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6299",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "void",
+        "opcode": 197,
+        "hasExtra": false
+    },
+    {
+        "name": "APPLET_CALL",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 63,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6783",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 353,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6869",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "int",
+        "opcode": 337,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6261",
+        "opcode": 111,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "instr6247",
+        "opcode": 683,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "instr6250",
+        "opcode": 625,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "ACTIVECLANCHANNEL_GETUSERWORLD",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 23,
+        "hasExtra": false
+    },
+    {
+        "name": "FC_GETCHATUSERNAME_UNFILTERED",
+        "popOrder": ["i"],
+        "returnType": "string",
+        "opcode": 580,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6122",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 151,
+        "hasExtra": false
+    },
+    {
+        "name": "FROMDATE",
+        "popOrder": ["i"],
+        "returnType": "string",
+        "opcode": 618,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETMOUSEOVERCURSOR",
+        "popOrder": ["ic", "i"],
+        "returnType": "int",
+        "opcode": 786,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANCHANNEL_GETUSERCOUNT",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 399,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANSETTINGS_GETBANNEDCOUNT",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 411,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANCHANNEL_GETUSERDISPLAYNAME",
+        "popOrder": ["i"],
+        "returnType": "string",
+        "opcode": 444,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANSETTINGS_GETRANKKICK",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 894,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANCHANNEL_KICKUSER",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 350,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_GET2DANGLE",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 723,
+        "hasExtra": false
+    },
+    {
+        "name": "FC_GETCHATUSERRANK",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 394,
+        "hasExtra": false
+    },
+    {
+        "name": "CAM_GETANGLEX",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 493,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANCHANNEL_GETRANKKICK",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 907,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6719",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 506,
+        "hasExtra": false
+    },
+    {
+        "name": "FC_LEAVECHAT",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 682,
+        "hasExtra": false
+    },
+    {
+        "name": "FC_GETCHATOWNERNAME",
+        "popOrder": [],
+        "returnType": "string",
+        "opcode": 338,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_CLOSESUBCLIENT",
+        "popOrder": ["i"],
+        "returnType": "void",
+        "opcode": 291,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6708",
+        "opcode": 76,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "ACTIVECLANSETTINGS_GETBANNEDDISPLAYNAME",
+        "popOrder": ["i"],
+        "returnType": "string",
+        "opcode": 746,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6576",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 875,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6774",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 551,
+        "hasExtra": false
+    },
+    {
+        "name": "CAM_GETANGLEY",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 161,
+        "hasExtra": false
+    },
+    {
+        "name": "CAM_SETANGLE",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 144,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETRETEX",
+        "popOrder": [
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 579,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_VOICEOVER_VOLUME",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 971,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6868",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "int",
+        "opcode": 420,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_RESUME_PAUSEBUTTON",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "void",
+        "opcode": 326,
+        "hasExtra": false
+    },
+    {
+        "name": "ITEM_COST",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 89,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETUSEOP",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 466,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_RECOLOUR",
+        "popOrder": [
+            "ic",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 194,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_RETEXTURE",
+        "popOrder": [
+            "ic",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 950,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_GETSPRITEID",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 449,
+        "hasExtra": false
+    },
+    {
+        "name": "OC_ICURSOR",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 45,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6391",
+        "popOrder": [
+            "ic",
+            "i"
+        ],
+        "returnType": "int,int",
+        "opcode": 52,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6300",
+        "popOrder": [
+            "ic",
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 163,
+        "hasExtra": false
+    },
+    {
+        "name": "APPLET_HASFOCUS",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 781,
+        "hasExtra": false
+    },
+    {
+        "name": "EMAIL_VALIDATION_ADD_NEW_ADDRESS",
+        "popOrder": [
+            "s",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 511,
+        "hasExtra": false
+    },
+    {
+        "name": "DETAILGET_MUSIC_VOLUME",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 942,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6678",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 940,
+        "hasExtra": false
+    },
+    {
+        "name": "POW",
+        "opcode": 645,
+        "hasExtra": false
+    },
+    {
+        "name": "POW_INVERSE",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 776,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETPLAYERHEAD_SELF",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 186,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_RESETOPNAME",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 611,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6765",
+        "opcode": 615,
+        "hasExtra": false,
+        "hasExtraHook": false
+    },
+    {
+        "name": "COORDX",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 93,
+        "hasExtra": false
+    },
+    {
+        "name": "COORDY",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 298,
+        "hasExtra": false
+    },
+    {
+        "name": "COORDZ",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 536,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETMODEL",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 872,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6797",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 519,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETOPNAME",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 806,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_GETSPRITEPITCH",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 491,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6257",
+        "opcode": 189,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "CC_SETNPCHEAD",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 542,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_CLOSE",
+        "popOrder": [],
+        "returnType": "void",
+        "opcode": 574,
+        "hasExtra": false
+    },
+    {
+        "name": "PLAYERCOUNTRY",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 667,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6256",
+        "opcode": 321,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "SEND_PUBLIC_CHAT",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 134,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_GETPARENTLAYER",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 692,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_CONTAINERITEMID",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 36,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETMODELANGLE",
+        "popOrder": [
+            "i",
+            "i",
+            "i",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 528,
+        "hasExtra": false
+    },
+    {
+        "name": "CHATLINE_GETCYCLES20MS",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 272,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6644",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 297,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6342",
+        "opcode": 300,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "stat",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 301,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6574",
+        "popOrder": [],
+        "returnType": "string",
+        "opcode": 309,
+        "hasExtra": false
+    },
+    {
+        "name": "item_uncert",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 313,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_setoutline",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 317,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6004",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 333,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6606",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 334,
+        "hasExtra": false
+    },
+    {
+        "name": "chat_quickchatid",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 335,
+        "hasExtra": false
+    },
+    {
+        "name": "world_members",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 336,
+        "hasExtra": false
+    },
+    {
+        "name": "stat_base",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 340,
+        "hasExtra": false
+    },
+    {
+        "name": "if_setborderthickness",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 344,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6073",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 345,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANCHANNEL_FIND_AFFINED",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 347,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_settextfont",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 351,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETPARAM_INT",
+        "popOrder": [
+            "ic",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 369,
+        "hasExtra": false
+    },
+    {
+        "name": "item_name",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "string",
+        "opcode": 385,
+        "hasExtra": false
+    },
+    {
+        "name": "SOUND_VORBIS_RATE",
+        "popOrder": [
+            "i",
+            "i",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 395,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_setfill",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 402,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_settiling",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 406,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_setitem_nonum",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 412,
+        "hasExtra": false
+    },
+    {
+        "name": "world_isquickchat",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 427,
+        "hasExtra": false
+    },
+    {
+        "name": "if_getscrolly",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 428,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6280",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 436,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANSETTINGS_FIND_AFFINED",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 452,
+        "hasExtra": false
+    },
+    {
+        "name": "stringwidth",
+        "popOrder": [
+            "i",
+            "s"
+        ],
+        "returnType": "int",
+        "opcode": 459,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6292",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 461,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6573",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "string",
+        "opcode": 462,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETMODEL",
+        "popOrder": [
+            "ic",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 488,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETPARAM_INT",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 497,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6220",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "void",
+        "opcode": 512,
+        "hasExtra": false
+    },
+    {
+        "name": "friend_getslotfromname",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "int",
+        "opcode": 520,
+        "hasExtra": false
+    },
+    {
+        "name": "USERDETAIL_LOBBY_GRACEEXPIRY",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 522,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_gety",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 523,
+        "hasExtra": false
+    },
+    {
+        "name": "enum_getoutputcount",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 533,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6289",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 543,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_getwidth",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 545,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_settextalign",
+        "popOrder": [
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 546,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6129",
+        "popOrder": [
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 552,
+        "hasExtra": false
+    },
+    {
+        "name": "lower_string",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "string",
+        "opcode": 556,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANSETTINGS_GETAFFINEDSLOT",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "int",
+        "opcode": 557,
+        "hasExtra": false
+    },
+    {
+        "name": "CLAN_VARS_ENABLED",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 559,
+        "hasExtra": false
+    },
+    {
+        "name": "if_gethide",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 578,
+        "hasExtra": false
+    },
+    {
+        "name": "STRING_INDEXOF_CHAR",
+        "popOrder": [
+            "s",
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 593,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETVFLIP",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 599,
+        "hasExtra": false
+    },
+    {
+        "name": "HOOK_MOUSE_EXIT",
+        "opcode": 600,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "IF_SETMODELANGLE",
+        "popOrder": [
+            "ic",
+            "i",
+            "i",
+            "i",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 605,
+        "hasExtra": false
+    },
+    {
+        "name": "friend_add",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 609,
+        "hasExtra": false
+    },
+    {
+        "name": "invother_getitem",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 612,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6151",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 620,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6072",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 624,
+        "hasExtra": false
+    },
+    {
+        "name": "CHAR_ISPRINTABLE",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 638,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_SETPARAM_STRING",
+        "popOrder": [
+            "i",
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 639,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6180",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 651,
+        "hasExtra": false
+    },
+    {
+        "name": "GENDER",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 657,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_setop",
+        "popOrder": [
+            "s",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 671,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANCHANNEL_GETUSERRANK",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 673,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_find",
+        "popOrder": [
+            "i",
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 677,
+        "hasExtra": false
+    },
+    {
+        "name": "chatline_gettype",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 681,
+        "hasExtra": false
+    },
+    {
+        "name": "if_settextshadow",
+        "popOrder": [
+            "ic",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 689,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETMODELANIM",
+        "popOrder": [
+            "ic",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 690,
+        "hasExtra": false
+    },
+    {
+        "name": "APPEND_CHAR",
+        "popOrder": [
+            "s",
+            "i"
+        ],
+        "returnType": "string",
+        "opcode": 701,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6296",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 704,
+        "hasExtra": false
+    },
+    {
+        "name": "if_getx",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 710,
+        "hasExtra": false
+    },
+    {
+        "name": "get_system_update_timer",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 715,
+        "hasExtra": false
+    },
+    {
+        "name": "invother_getnum",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 720,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETTEXT",
+        "popOrder": [
+            "ic",
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 724,
+        "hasExtra": false
+    },
+    {
+        "name": "staffmodlevel",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 727,
+        "hasExtra": false
+    },
+    {
+        "name": "IGNORE_COUNT",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 735,
+        "hasExtra": false
+    },
+    {
+        "name": "if_gettext",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "string",
+        "opcode": 748,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_setgraphicshadow",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 751,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETTRANS",
+        "popOrder": [
+            "ic",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 763,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6443",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 764,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_SETHFLIP",
+        "popOrder": [
+            "ic",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 774,
+        "hasExtra": false
+    },
+    {
+        "name": "chat_getcrownedname",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "string",
+        "opcode": 789,
+        "hasExtra": false
+    },
+    {
+        "name": "chat_getfilter_private",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 792,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_getheight",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 796,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_GETX",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 797,
+        "hasExtra": false
+    },
+    {
+        "name": "compare",
+        "popOrder": [
+            "s",
+            "s"
+        ],
+        "returnType": "int",
+        "opcode": 810,
+        "hasExtra": false
+    },
+    {
+        "name": "if_setcolor",
+        "popOrder": [
+            "i",
+            "col"
+        ],
+        "returnType": "void",
+        "opcode": 816,
+        "hasExtra": false
+    },
+    {
+        "name": "ENUM_STRING",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "string",
+        "opcode": 820,
+        "hasExtra": false
+    },
+    {
+        "name": "item_members",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 822,
+        "hasExtra": false
+    },
+    {
+        "name": "if_setscrollpos",
+        "popOrder": [
+            "ic",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 825,
+        "hasExtra": false
+    },
+    {
+        "name": "STRING_INDEXOF_STRING",
+        "popOrder": [
+            "s",
+            "s",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 844,
+        "hasExtra": false
+    },
+    {
+        "name": "cc_setposition",
+        "popOrder": [
+            "i",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "void",
+        "opcode": 847,
+        "hasExtra": false
+    },
+    {
+        "name": "IGNORE_DEL",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 871,
+        "hasExtra": false
+    },
+    {
+        "name": "friend_test",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "int",
+        "opcode": 879,
+        "hasExtra": false
+    },
+    {
+        "name": "friend_platform",
+        "popOrder": ["i"],
+        "returnType": "int",
+        "opcode": 880,
+        "hasExtra": false
+    },
+    {
+        "name": "ACTIVECLANCHANNEL_GETUSERSLOT",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "int",
+        "opcode": 897,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_GETSPRITESCALE",
+        "popOrder": [],
+        "returnType": "int",
+        "opcode": 0,
+        "hasExtra": false
+    },
+    {
+        "name": "enum_getreverseindex",
+        "popOrder": [
+            "i",
+            "i",
+            "i",
+            "i",
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 904,
+        "hasExtra": false
+    },
+    {
+        "name": "IF_GETTRANS",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 912,
+        "hasExtra": false
+    },
+    {
+        "name": "FRIEND_DEL",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 914,
+        "hasExtra": false
+    },
+    {
+        "name": "CHAR_ISNUMERIC",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 934,
+        "hasExtra": false
+    },
+    {
+        "name": "ITEM_IOP",
+        "popOrder": [
+            "i",
+            "i"
+        ],
+        "returnType": "string",
+        "opcode": 949,
+        "hasExtra": false
+    },
+    {
+        "name": "if_getheight",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 953,
+        "hasExtra": false
+    },
+    {
+        "name": "instr6584",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 958,
+        "hasExtra": false
+    },
+    {
+        "name": "IGNORE_TEST",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "int",
+        "opcode": 966,
+        "hasExtra": false
+    },
+    {
+        "name": "HOOK_MOUSE_ENTER",
+        "opcode": 968,
+        "hasExtra": false,
+        "hasExtraHook": true
+    },
+    {
+        "name": "cc_settext",
+        "popOrder": [
+            "s"
+        ],
+        "returnType": "void",
+        "opcode": 972,
+        "hasExtra": false
+    },
+    {
+        "name": "if_getscrollheight",
+        "popOrder": [
+            "i"
+        ],
+        "returnType": "int",
+        "opcode": 978,
+        "hasExtra": false
+    },
+    {
+        "name": "CC_GETTEXT",
+        "popOrder": [],
+        "returnType": "string",
+        "opcode": 979,
+        "hasExtra": false
+    },
+    {
+        "name": "if_getnextsubid",
+        "popOrder": [
+            "ic"
+        ],
+        "returnType": "int",
+        "opcode": 1000,
+        "hasExtra": false
+    }
 ]
