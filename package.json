@@ -23,7 +23,7 @@
   "homepage": "https://github.com/pyragon/cs2-parser#readme",
   "dependencies": {
     "arcsecond": "^2.0.4",
-    "underscore": "^1.12.1",
+    "underscore": "^1.13.8",
     "util": "^0.12.3"
   }
 }
